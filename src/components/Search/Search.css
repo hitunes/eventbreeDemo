@@ -1,0 +1,163 @@
+.ant-input {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.ant-input:hover {
+    border-color: #707070 !important;
+}
+
+.ant-input:active {
+    border-color: #707070 !important;
+}
+
+.ant-input-search-icon {
+    display: none !important
+}
+
+.anticon-search {
+    color: #707070 !important;
+}
+
+::-webkit-input-placeholder {
+    color: #707070 !important;
+}
+
+.ant-input-affix-wrapper .ant-input:not(:first-child) {
+    padding-left: 46px !important;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    /* padding-left: 15px; */
+}
+
+.searchbox {
+    margin-right: 8px !important;
+    width: 926px !important;
+    height: 56px !important;
+}
+
+.ant-dropdown-link {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: bold !important;
+}
+
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 160px;
+    width: 300px !important;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+    color: #fff;
+}
+
+.ant-dropdown {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.ant-dropdown-menu-submenu-title {
+    font-weight: bold !important;
+}
+
+.ant-dropdown-menu-sub {
+    overflow-y: scroll;
+    height: 340px;
+}
+
+.ant-dropdown-menu-sub::-webkit-scrollbar {
+    width: 4px;
+    height: 165px;
+}
+
+.ant-dropdown-menu-sub::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #c5d9e8;
+}
+
+.anticon-down {
+    margin-left: 24px;
+}
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .searchbox {
+        width: 228px !important
+    }
+     ::-webkit-input-placeholder {
+        font-size: 10px !important
+    }
+    .anticon-down {
+        margin-left: 5px;
+    }
+    .ant-dropdown-link {
+        font-size: 10px !important
+    }
+}
+
+
+/* samsung */
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .searchbox {
+        width: 228px !important
+    }
+     ::-webkit-input-placeholder {
+        font-size: 10px !important
+    }
+    .anticon-down {
+        margin-left: 5px;
+    }
+    .ant-dropdown-link {
+        font-size: 10px !important
+    }
+}
+
+
+/* iphone 6 */
+
+@media screen and (min-width: 375px)and (max-width: 410px) {
+    .searchbox {
+        width: 228px !important
+    }
+     ::-webkit-input-placeholder {
+        font-size: 10px !important
+    }
+    .anticon-down {
+        margin-left: 5px;
+    }
+    .ant-dropdown-link {
+        font-size: 10px !important
+    }
+}
+
+@media screen and (min-width: 411px) and (max-width: 763px) {
+    .searchbox {
+        width: 228px !important
+    }
+     ::-webkit-input-placeholder {
+        font-size: 10px !important
+    }
+    .anticon-down {
+        margin-left: 5px;
+    }
+    .ant-dropdown-link {
+        font-size: 10px !important
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {}
+
+@media screen and (max-width: 960px) {}

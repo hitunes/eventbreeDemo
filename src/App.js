@@ -1,51 +1,199 @@
 import React, { Component } from "react";
-import Cards from "./components/Cards";
+import { BrowserRouter, Route } from "react-router-dom";
+//api
+import { API_URL } from "./config";
+import { handleResponse } from "./helpers.js";
+//api
+//redux
+// import { Provider } from "react-redux";
+// import store from "./store";
+//redux
+import debounce from "lodash/debounce";
+import {
+  FrontPageTitle,
+  GlobalPageTitle,
+  NavLinks
+} from "./components/Header/Header";
+import CardGroup from "./components/Cards/CardGroup";
+import SearchInput from "./components/Search/Search";
+import DetailPage from "./components/CardDetail/DetailPage";
+import Footer from "./components/Footer/Footer";
+import "antd/dist/antd.css";
 import "./App.css";
 
-const data = [
-  {
-    id: "Wyd4UiQAAJkaXxeh",
-    uid: "unique - and - inspiring - wedding - place - cards",
-    title: "Unique And Inspiring Wedding Place Cards \n",
-    summary:
-      "<p>Assist your guests to their seats with beautiful place cards adding to the decor of your event</p>",
-    author: "Eventbree",
-    category: {
-      id: "WzIzET4AAPpnUvM2",
-      name: "Stationaries",
-      slug: "stationaries",
-      url: "https://eventbreesite.loc/categories/stationaries"
-    },
-    culture: {
-      id: "WzGbkj4AAHw4UFAA",
-      name: "General",
-      slug: "general",
-      url: "https://eventbreesite.loc/culture/general"
-    },
-    eventType: {
-      id: "WzGh7D4AAHw4UGxH",
-      name: "Weddings",
-      slug: "weddings",
-      url: "https://eventbreesite.loc/event-type/weddings"
-    },
-    date: "2018 - 06 - 27",
-    date_formatted: "27th of June 2018",
-    url:
-      "https://eventbreesite.loc/stationaries/unique-and-inspiring-wedding-place-cards",
-    target: null,
-    image:
-      "https://eventbree-website.cdn.prismic.io/eventbree-website/93413f2fb57aa726e04f3ab86c6e85a74c8892db_wooden-place-cards-5.jpg",
-    tags: {}
-  }
-];
+let currentTrend = {};
+let placedTrend = [];
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      trends: [],
+      searchables: [],
+      history: [],
+      counter: 1,
+      loading: true,
+      error: "",
+      searchTrends: "",
+      likeImg:
+        "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
+      likeCounter: 1,
+      value: ""
+    };
+    this.Scroller = debounce(this.Scroller, 150);
+  }
+  onChange = e => {
+    this.state.value({
+      value: e.target.value
+    });
+  };
+  likeImgToggler = e => {
+    currentTrend = {
+      ...this.state.trends,
+      value: e.target.value
+    };
+    let history = this.state.history;
+    placedTrend.push(currentTrend.id);
+    this.setState({ history: placedTrend });
+    console.log(history, currentTrend, this.state.history);
+    //else {
+    //   let checkIndex = 0;
+    //   let trendChecker = placedTrend.filter((bet, index) => {
+    //     checkIndex = index;
+    //     return bet.matchId === currentMatch.matchId;
+    //   });
+    this.setState({
+      likeImg:
+        "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg",
+      likeCounter: this.state.likeCounter + 1
+    });
+  };
+  handleSearch = e => {
+    this.setState({ searchTrends: e.target.value });
+  };
+  trendsApi = () => {
+    fetch(`${API_URL}/?page=${this.state.counter}`)
+      .then(handleResponse)
+      .then(data => {
+        const trendsInfo = data.data;
+        this.setState({
+          loading: false,
+          trends:
+            this.state.trends.length > 0
+              ? [...this.state.trends, ...trendsInfo]
+              : trendsInfo
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error: error.errorMessage,
+          loading: true
+        });
+      });
+  };
+  // getHackerNewsUrl = (value, page) =>
+  //   `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`;
+  // fetchStories = (value, page) =>
+  //   fetch(getHackerNewsUrl(value, page))
+  //     .then(response => response.json())
+  //     .then(result => this.onSetResult(result, page));
+
+  // onSetResult = (result, page) =>
+  //   page === 0
+  //     ? this.setState(applySetResult(result))
+  //     : this.setState(applyUpdateResult(result));
+  // searchAll = (url, size) => {
+  //   url === null
+  //     ? null
+  //     : fetch(`${API_URL}/all?`)
+  //         .then(handleResponse)
+  //         .then(data => {
+  //           const searchInfo = data.data;
+  //           this.setState({
+  //             searchables: [...this.state.searchables, ...searchInfo]
+  //           });
+  //         });
+  // };
+  componentDidMount() {
+    this.trendsApi();
+    // this.searchAll();
+    window.addEventListener("scroll", this.Scroller, false);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.Scroller, false);
+  }
+  Scroller = (window.onscroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      this.setState({ counter: this.state.counter + 1 });
+      this.trendsApi();
+    }
+  });
   render() {
     return (
       <div className="App">
-        <Cards cardsInfo={data} />
+        {window.innerWidth < 769 ? (
+          <div>
+            <img
+              className="mobile-img-left side-img"
+              src="images/Designleftside.png"
+              alt="left-design"
+            />
+            <img
+              className="mobile-img-right side-img"
+              src="images/Designrightside.png"
+              alt="right-design"
+            />
+          </div>
+        ) : (
+          <div>
+            <img
+              className="img-right side-img"
+              src="https://static.eventbree.com/trends/images/svg/trend-design-left.svg"
+              alt="right-design"
+            />
+            <img
+              className="img-left side-img"
+              src="https://static.eventbree.com/trends/images/svg/trend-design-right.svg"
+              alt="left-design"
+            />
+          </div>
+        )}
+        <BrowserRouter>
+          <div>
+            <NavLinks />
+
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <div className="maincontent__page-wrapper">
+                  <GlobalPageTitle />
+                  <FrontPageTitle />
+                  <SearchInput
+                    searchTrends={this.state.searchTrends}
+                    handleSearch={this.handleSearch}
+                    loading={this.state.loading}
+                  />
+                  <CardGroup
+                    loading={this.state.loading}
+                    cardsInfo={this.state.trends}
+                    searchTrends={this.state.searchTrends}
+                    likeImg={this.state.likeImg}
+                    likeCounter={this.state.likeCounter}
+                    likeImgToggler={this.likeImgToggler}
+                    onChange={this.onChange}
+                  />
+                </div>
+              )}
+            />
+            <Route exact path="/:category/:id" component={DetailPage} />
+            <Footer />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
 }
 
 export default App;
+
+// <Provider store={store}> </Provider>;

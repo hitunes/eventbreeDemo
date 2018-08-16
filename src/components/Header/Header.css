@@ -1,0 +1,116 @@
+.navlinks__wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center
+}
+
+.globalpagetitle {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: #262a39;
+    margin-top: 107px;
+    text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
+}
+
+.frontpagetitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #262a39;
+    text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
+}
+
+.nav__links>span {
+    font-size: 16px;
+    color: #262a39;
+    margin-right: 40px
+}
+
+.nav__links>button {
+    border-radius: 8px;
+    background-color: #3b87bc;
+    color: white;
+    padding: 10px 20px;
+    height: 40px;
+}
+
+.nav__links>button:active,
+.nav__links>button:focus {
+    border: white;
+}
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .globalpagetitle {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+    .frontpagetitle {
+        margin-bottom: 38px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}
+
+
+/* samsung */
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .globalpagetitle {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+    .frontpagetitle {
+        margin-bottom: 38px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}
+
+
+/* iphone 6 */
+
+@media screen and (min-width: 375px)and (max-width: 410px) {
+    .globalpagetitle {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+    .frontpagetitle {
+        margin-bottom: 38px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 411px) and (max-width: 763px) {
+    .globalpagetitle {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+    .frontpagetitle {
+        margin-bottom: 38px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .globalpagetitle {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+    .frontpagetitle {
+        margin-bottom: 38px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}

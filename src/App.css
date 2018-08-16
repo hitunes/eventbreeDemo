@@ -1,3 +1,105 @@
 .App {
     text-align: left;
+    overflow: hidden;
+    padding-top: 16px;
+    position: relative
+}
+
+::selection {
+    background: transparent;
+}
+
+.side-img {
+    width: 160px;
+    height: 150px;
+}
+
+.img-right {
+    top: 450px;
+    right: -4%;
+    position: absolute
+}
+
+.img-left {
+    top: 30px;
+    left: -7%;
+    position: absolute
+}
+
+.maincontent__page-wrapper {
+    padding: 0 32px
+}
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .mobile-img-right {
+        top: 145px;
+        right: -32%;
+        position: absolute
+    }
+    .mobile-img-left {
+        top: 64px;
+        left: -40%;
+        position: absolute
+    }
+}
+
+
+/* samsung */
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .mobile-img-right {
+        top: 145px;
+        right: -32%;
+        position: absolute
+    }
+    .mobile-img-left {
+        top: 64px;
+        left: -34%;
+        position: absolute
+    }
+}
+
+
+/* iphone 6 */
+
+@media screen and (min-width: 375px)and (max-width: 410px) {
+    .mobile-img-right {
+        top: 145px;
+        right: -32%;
+        position: absolute
+    }
+    .mobile-img-left {
+        top: 64px;
+        left: -34%;
+        position: absolute
+    }
+}
+
+@media screen and (min-width: 411px) and (max-width: 763px) {
+    .mobile-img-right {
+        top: 145px;
+        right: -32%;
+        position: absolute
+    }
+    .mobile-img-left {
+        top: 64px;
+        left: -30%;
+        position: absolute
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .mobile-img-right {
+        top: 145px;
+        right: -32%;
+        position: absolute
+    }
+    .mobile-img-left {
+        top: 64px;
+        left: -34%;
+        position: absolute
+    }
 }
