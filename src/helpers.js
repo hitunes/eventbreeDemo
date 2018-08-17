@@ -266,6 +266,18 @@ export const whatsappShare =
   "https://static.eventbree.com/trends/images/png/whatsapp-share.png";
 export const emailShare =
   "https://static.eventbree.com/trends/images/svg/email.svg";
+export const quotes =
+  "https://static.eventbree.com/trends/images/svg/quotes.svg";
+export const mobileLeftSide =
+  "https://static.eventbree.com/trends/images/png/design-left-side.png";
+export const mobileRightSide =
+  "https://static.eventbree.com/trends/images/png/design-right-side.png";
+export const webLeftSide =
+  "https://static.eventbree.com/trends/images/svg/trend-design-left.svg";
+export const webRightSide =
+  "https://static.eventbree.com/trends/images/svg/trend-design-right.svg";
+export const logoHeader =
+  "https://static.eventbree.com/trends/images/png/logo-header.png";
 
 // select dropdown menu
 export let Culture = [

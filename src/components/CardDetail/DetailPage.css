@@ -140,8 +140,14 @@
     padding-right: 98px
 }
 
-.blockquote>div:nth-child(1) {
-    text-align: center
+.blockquote>div {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.blockquote>div>img {
+    width: 32px;
+    height: 22px;
 }
 
 .blockquote__quote {

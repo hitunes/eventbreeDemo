@@ -1,15 +1,13 @@
 import React from "react";
 import { Button } from "antd";
+import { logoHeader } from "../../helpers.js";
 import "./Header.css";
 
 export const NavLinks = params => {
   return (
     <div className="navlinks__wrapper">
       <div className="nav__logo">
-        <img
-          src="https://static.eventbree.com/trends/images/png/logo-header.png"
-          alt=""
-        />
+        <img src={logoHeader} alt="" />
       </div>
       <div className="nav__links">
         <span>Marketplace</span>
@@ -28,5 +26,20 @@ export const FrontPageTitle = params => {
     <div className="frontpagetitle">
       Inspirations and ideas for your events based on popular trends
     </div>
+  );
+};
+
+export const Aside = () => {
+  return (
+    <aside>
+      <div className="aside__logo-wrapper">
+        <div className="aside__logo">
+          <img src={logoHeader} alt="EVENTBREE" />
+        </div>
+        <div>
+          <img src="images/close-btn.png" alt="" />
+        </div>
+      </div>
+    </aside>
   );
 };

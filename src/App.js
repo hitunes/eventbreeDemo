@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 //api
 import { API_URL } from "./config";
-import { handleResponse } from "./helpers.js";
+import {
+  handleResponse,
+  mobileLeftSide,
+  mobileRightSide,
+  webLeftSide,
+  webRightSide
+} from "./helpers.js";
 //api
 //redux
 // import { Provider } from "react-redux";
@@ -12,7 +18,8 @@ import debounce from "lodash/debounce";
 import {
   FrontPageTitle,
   GlobalPageTitle,
-  NavLinks
+  NavLinks,
+  Aside
 } from "./components/Header/Header";
 import CardGroup from "./components/Cards/CardGroup";
 import SearchInput from "./components/Search/Search";
@@ -90,13 +97,6 @@ class App extends Component {
         });
       });
   };
-  // getHackerNewsUrl = (value, page) =>
-  //   `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`;
-  // fetchStories = (value, page) =>
-  //   fetch(getHackerNewsUrl(value, page))
-  //     .then(response => response.json())
-  //     .then(result => this.onSetResult(result, page));
-
   // onSetResult = (result, page) =>
   //   page === 0
   //     ? this.setState(applySetResult(result))
@@ -130,7 +130,10 @@ class App extends Component {
   //   }
   // });
   // Scroller = (window.onscroll = () => {
-  //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  //   if (
+  //     window.innerHeight + window.scrollY >=
+  //     document.body.offsetHeight - 700
+  //   ) {
   //     this.setState({ counter: this.state.counter + 1 });
   //     this.trendsApi();
   //   }
@@ -142,12 +145,12 @@ class App extends Component {
           <div>
             <img
               className="mobile-img-left side-img"
-              src="https://static.eventbree.com/trends/images/png/design-left-side.png"
+              src={mobileLeftSide}
               alt="left-design"
             />
             <img
               className="mobile-img-right side-img"
-              src="https://static.eventbree.com/trends/images/png/design-right-side.png"
+              src={mobileRightSide}
               alt="right-design"
             />
           </div>
@@ -155,20 +158,20 @@ class App extends Component {
           <div>
             <img
               className="img-right side-img"
-              src="https://static.eventbree.com/trends/images/svg/trend-design-left.svg"
-              alt="right-design"
+              src={webLeftSide}
+              alt="left-design"
             />
             <img
               className="img-left side-img"
-              src="https://static.eventbree.com/trends/images/svg/trend-design-right.svg"
-              alt="left-design"
+              src={webRightSide}
+              alt="right-design"
             />
           </div>
         )}
         <BrowserRouter>
           <div>
             <NavLinks />
-
+            <Aside />
             <Route
               exact
               path="/"

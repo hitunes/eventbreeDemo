@@ -17,7 +17,8 @@ import {
   googleplusShare,
   pinterestShare,
   whatsappShare,
-  emailShare
+  emailShare,
+  quotes
 } from "../../helpers.js";
 import "./DetailPage.css";
 
@@ -150,7 +151,9 @@ export default class DetailPage extends Component {
         <div>
           <div>{formatter(card.content)}</div>
           <div className="blockquote">
-            <div>"</div>
+            <div>
+              <img src={quotes} alt="" />
+            </div>
             <p className="blockquote__quote">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus
               maxime eius odio rerum earum tempore elit. accusamus voluptates

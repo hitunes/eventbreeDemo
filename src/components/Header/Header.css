@@ -40,6 +40,22 @@
     height: 40px;
 }
 
+aside {
+    width: 272px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    border: 1px solid black;
+    z-index: 10;
+    display: none !important
+}
+
+.aside__logo-wrapper {
+    display: flex;
+    justify-content: space-between
+}
+
 .nav__links>button:active,
 .nav__links>button:focus {
     border: white;
@@ -58,6 +74,9 @@
         margin-top: 8px;
         font-size: 12px;
     }
+    .nav__links {
+        display: none
+    }
 }
 
 
@@ -73,6 +92,9 @@
         margin-top: 8px;
         font-size: 12px;
     }
+    .nav__links {
+        display: none
+    }
 }
 
 
@@ -87,6 +109,9 @@
         margin-bottom: 38px;
         margin-top: 8px;
         font-size: 12px;
+    }
+    .nav__links {
+        display: none
     }
 }
 
