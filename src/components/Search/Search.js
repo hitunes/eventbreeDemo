@@ -55,10 +55,20 @@ const menu = (
 );
 const TrendsDropdown = params => {
   return (
-    <Dropdown overlay={menu} trigger={["click"]}>
-      <a className="ant-dropdown-link" href="#">
-        Trends <Icon type="down" />
-      </a>
-    </Dropdown>
+    <div>
+      {window.innerWidth < 769 ? (
+        <Dropdown overlay={menu} trigger={["click"]}>
+          <a className="ant-dropdown-link" href="#">
+            Trends <Icon type="down" />
+          </a>
+        </Dropdown>
+      ) : (
+        <Dropdown overlay={menu}>
+          <a className="ant-dropdown-link" href="#">
+            Trends <Icon type="down" />
+          </a>
+        </Dropdown>
+      )}
+    </div>
   );
 };
