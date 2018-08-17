@@ -64,7 +64,7 @@ aside {
 
 /* iphone 5 */
 
-@media screen and (min-width: 320px) and (max-width: 359px) {
+@media screen and (max-width: 768px) {
     .globalpagetitle {
         font-size: 26px;
         margin-top: 40px;
@@ -76,54 +76,6 @@ aside {
     }
     .nav__links {
         display: none
-    }
-}
-
-
-/* samsung */
-
-@media screen and (min-width: 360px) and (max-width: 374px) {
-    .globalpagetitle {
-        font-size: 26px;
-        margin-top: 40px;
-    }
-    .frontpagetitle {
-        margin-bottom: 38px;
-        margin-top: 8px;
-        font-size: 12px;
-    }
-    .nav__links {
-        display: none
-    }
-}
-
-
-/* iphone 6 */
-
-@media screen and (min-width: 375px)and (max-width: 410px) {
-    .globalpagetitle {
-        font-size: 26px;
-        margin-top: 40px;
-    }
-    .frontpagetitle {
-        margin-bottom: 38px;
-        margin-top: 8px;
-        font-size: 12px;
-    }
-    .nav__links {
-        display: none
-    }
-}
-
-@media screen and (min-width: 411px) and (max-width: 763px) {
-    .globalpagetitle {
-        font-size: 26px;
-        margin-top: 40px;
-    }
-    .frontpagetitle {
-        margin-bottom: 38px;
-        margin-top: 8px;
-        font-size: 12px;
     }
 }
 

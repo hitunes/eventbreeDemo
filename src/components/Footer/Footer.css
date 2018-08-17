@@ -61,39 +61,7 @@
     margin-right: 40px
 }
 
-
-/* iphone 5 */
-
-@media screen and (min-width: 320px) and (max-width: 359px) {
-    .footer__container {
-        padding: 30px 18px;
-        color: #fff;
-        font-size: 10px;
-        margin-top: 130px
-    }
-    .mobile-footer__links>span {
-        margin-bottom: 16px
-    }
-    .mobile-footer__links {
-        display: flex;
-        flex-direction: column
-    }
-    .footer__connect {
-        display: flex;
-        margin-bottom: 62px;
-    }
-    .footer__connect-title {
-        margin-right: 9px
-    }
-    .footer__connect-icons span {
-        margin-right: 16px
-    }
-}
-
-
-/* samsung */
-
-@media screen and (min-width: 360px) and (max-width: 374px) {
+@media screen and (max-width: 763px) {
     .footer__container {
         padding: 30px 18px;
         color: #fff;
@@ -117,60 +85,11 @@
     .footer__connect-icons span {
         margin-right: 16px
     }
-}
-
-
-/* iphone 6 */
-
-@media screen and (min-width: 375px)and (max-width: 410px) {
-    .footer__container {
-        padding: 30px 18px;
-        color: #fff;
-        font-size: 10px;
-        margin-top: 130px
+    .footer__copyrights {
+        font-size: 8px
     }
-    .mobile-footer__links {
-        display: flex;
-        flex-direction: column
-    }
-    .mobile-footer__links>span {
-        margin-bottom: 16px
-    }
-    .footer__connect {
-        display: flex;
-        margin-bottom: 62px;
-    }
-    .footer__connect-title {
-        margin-right: 9px
-    }
-    .footer__connect-icons span {
-        margin-right: 16px
-    }
-}
-
-@media screen and (min-width: 411px) and (max-width: 763px) {
-    .footer__container {
-        padding: 30px 18px;
-        color: #fff;
-        font-size: 10px;
-        margin-top: 130px
-    }
-    .mobile-footer__links {
-        display: flex;
-        flex-direction: column
-    }
-    .mobile-footer__links>span {
-        margin-bottom: 16px
-    }
-    .footer__connect {
-        display: flex;
-        margin-bottom: 62px;
-    }
-    .footer__connect-title {
-        margin-right: 9px
-    }
-    .footer__connect-icons span {
-        margin-right: 16px
+    .copyright-year {
+        margin-right: 10px
     }
 }
 

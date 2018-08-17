@@ -52,7 +52,7 @@ export default class Footer extends Component {
               </span>
             </div>
             <div className="footer__copyrights">
-              <span className="copyright-year">2018</span>
+              <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
@@ -98,7 +98,7 @@ export default class Footer extends Component {
               </div>
             </div>
             <div className="footer__copyrights">
-              <span className="copyright-year">2018</span>
+              <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>

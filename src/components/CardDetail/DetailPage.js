@@ -86,7 +86,7 @@ export default class DetailPage extends Component {
             <span>{card.event_type.name}</span>
           </div>
           <div className="detailpage__share-btn">
-            Share:
+            Share
             <span>
               <span onClick={() => shareOnFacebook(card.share.url)}>
                 <img

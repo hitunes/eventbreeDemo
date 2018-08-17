@@ -163,3 +163,329 @@
     line-height: 1.83;
     color: #262a39;
 }
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    @media screen and (max-width: 768px) {
+        .detailpage__wrapper {
+            padding: 0 32px;
+        }
+        .detailpage__title {
+            margin-top: 9px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .detailpage__slug-title>span {
+            font-size: 10px;
+        }
+        .detailpage__slug-title {
+            margin-bottom: 5px;
+        }
+        .detailpage__share-btn>span {
+            display: none
+        }
+        .detailpage__share-btn {
+            font-size: 10px;
+            color: #3b87bc;
+            text-shadow: 0 9px 12px rgba(0, 0, 0, 0.16);
+            margin-bottom: 27px;
+        }
+        .content__text-wrapper {
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        .card__summary-image {
+            width: 257px;
+            height: 390px;
+        }
+        .blockquote {
+            margin-top: 16px;
+            padding: 0
+        }
+        .blockquote__quote {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .blockquote>div {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .blockquote__author {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .card__similar-trend {
+            margin-top: 90px
+        }
+        .card__similar-trend-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .card__similar-trend-img {
+            margin-top: 30px
+        }
+        .card__similar-image {
+            margin-right: 0px
+        }
+    }
+}
+
+
+/* samsung */
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    @media screen and (max-width: 768px) {
+        .detailpage__wrapper {
+            padding: 0 32px;
+        }
+        .detailpage__title {
+            margin-top: 9px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .detailpage__slug-title>span {
+            font-size: 10px;
+        }
+        .detailpage__slug-title {
+            margin-bottom: 5px;
+        }
+        .detailpage__share-btn>span {
+            display: none
+        }
+        .detailpage__share-btn {
+            font-size: 10px;
+            color: #3b87bc;
+            text-shadow: 0 9px 12px rgba(0, 0, 0, 0.16);
+            margin-bottom: 27px;
+        }
+        .content__text-wrapper {
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        .card__summary-image {
+            width: 295px;
+        }
+        .blockquote {
+            margin-top: 16px;
+            padding: 0
+        }
+        .blockquote__quote {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .blockquote>div {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .blockquote__author {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .card__similar-trend {
+            margin-top: 90px
+        }
+        .card__similar-trend-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .card__similar-trend-img {
+            margin-top: 30px
+        }
+        .card__similar-image {
+            margin-right: 0px
+        }
+    }
+}
+
+
+/* iphone 6 */
+
+@media screen and (min-width: 375px)and (max-width: 410px) {
+    @media screen and (max-width: 768px) {
+        .detailpage__wrapper {
+            padding: 0 32px;
+        }
+        .detailpage__title {
+            margin-top: 9px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .detailpage__slug-title>span {
+            font-size: 10px;
+        }
+        .detailpage__slug-title {
+            margin-bottom: 5px;
+        }
+        .detailpage__share-btn>span {
+            display: none
+        }
+        .detailpage__share-btn {
+            font-size: 10px;
+            color: #3b87bc;
+            text-shadow: 0 9px 12px rgba(0, 0, 0, 0.16);
+            margin-bottom: 27px;
+        }
+        .content__text-wrapper {
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        .card__summary-image {
+            width: 306px;
+        }
+        .blockquote {
+            margin-top: 16px;
+            padding: 0
+        }
+        .blockquote__quote {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .blockquote>div {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .blockquote__author {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .card__similar-trend {
+            margin-top: 90px
+        }
+        .card__similar-trend-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .card__similar-trend-img {
+            margin-top: 30px
+        }
+        .card__similar-image {
+            margin-right: 0px
+        }
+    }
+}
+
+@media screen and (min-width: 411px) and (max-width: 763px) {
+    @media screen and (max-width: 768px) {
+        .detailpage__wrapper {
+            padding: 0 32px;
+        }
+        .detailpage__title {
+            margin-top: 9px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .detailpage__slug-title>span {
+            font-size: 10px;
+        }
+        .detailpage__slug-title {
+            margin-bottom: 5px;
+        }
+        .detailpage__share-btn>span {
+            display: none
+        }
+        .detailpage__share-btn {
+            font-size: 10px;
+            color: #3b87bc;
+            text-shadow: 0 9px 12px rgba(0, 0, 0, 0.16);
+            margin-bottom: 27px;
+        }
+        .content__text-wrapper {
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        .card__summary-image {
+            width: 347px;
+        }
+        .blockquote {
+            margin-top: 16px;
+            padding: 0
+        }
+        .blockquote__quote {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .blockquote>div {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .blockquote__author {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .card__similar-trend {
+            margin-top: 90px
+        }
+        .card__similar-trend-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .card__similar-trend-img {
+            margin-top: 30px
+        }
+        .card__similar-image {
+            margin-right: 0px
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+    .detailpage__wrapper {
+        padding: 0 32px;
+    }
+    .detailpage__title {
+        margin-top: 9px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .detailpage__slug-title>span {
+        font-size: 10px;
+    }
+    .detailpage__slug-title {
+        margin-bottom: 5px;
+    }
+    .detailpage__share-btn>span {
+        display: none
+    }
+    .detailpage__share-btn {
+        font-size: 10px;
+        color: #3b87bc;
+        text-shadow: 0 9px 12px rgba(0, 0, 0, 0.16);
+        margin-bottom: 27px;
+    }
+    .content__text-wrapper {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    .card__summary-image {
+        width: 322px;
+    }
+    .blockquote {
+        margin-top: 16px;
+        padding-left: 98px;
+        padding-right: 98px;
+    }
+    .blockquote__quote {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    .blockquote>div {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .blockquote__author {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .card__similar-trend {
+        margin-top: 90px
+    }
+    .card__similar-trend-title {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .card__similar-trend-img {
+        margin-top: 30px
+    }
+}
