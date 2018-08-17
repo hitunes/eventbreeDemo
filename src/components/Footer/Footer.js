@@ -7,7 +7,7 @@ export default class Footer extends Component {
       <div className="footer__container">
         <div className="footer__logo">
           <img
-            src="https://static.eventbree.com/trends/images/svg/Logofooter.png"
+            src="https://static.eventbree.com/trends/images/png/logo-footer.png"
             alt="footer"
             width="106px"
             height="35px"

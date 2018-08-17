@@ -39,7 +39,7 @@ class App extends Component {
       likeCounter: 1,
       value: ""
     };
-    this.Scroller = debounce(this.Scroller, 150);
+    // this.Scroller = debounce(this.Scroller, 150);
   }
   onChange = e => {
     this.state.value({
@@ -121,12 +121,20 @@ class App extends Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.Scroller, false);
   }
-  Scroller = (window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      this.setState({ counter: this.state.counter + 1 });
-      this.trendsApi();
-    }
-  });
+  // Scroller = (window.scroll = () => {
+  //   let scrollLoad = true;
+  //   if (window.scrollTop() >= document.Height() - window.Height() - 10) {
+  //     scrollLoad = false;
+  //     this.setState({ counter: this.state.counter + 1 });
+  //     this.trendsApi();
+  //   }
+  // });
+  // Scroller = (window.onscroll = () => {
+  //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  //     this.setState({ counter: this.state.counter + 1 });
+  //     this.trendsApi();
+  //   }
+  // });
   render() {
     return (
       <div className="App">
@@ -134,12 +142,12 @@ class App extends Component {
           <div>
             <img
               className="mobile-img-left side-img"
-              src="images/Designleftside.png"
+              src="https://static.eventbree.com/trends/images/png/design-left-side.png"
               alt="left-design"
             />
             <img
               className="mobile-img-right side-img"
-              src="images/Designrightside.png"
+              src="https://static.eventbree.com/trends/images/png/design-right-side.png"
               alt="right-design"
             />
           </div>

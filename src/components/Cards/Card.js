@@ -8,7 +8,14 @@ import {
   shareOnGooglePlus,
   shareOnLinkedIn,
   shareOnWhatsapp,
-  shareWithMail
+  shareWithMail,
+  facebookShare,
+  twitterShare,
+  linkedinShare,
+  googleplusShare,
+  pinterestShare,
+  whatsappShare,
+  emailShare
 } from "../../helpers.js";
 class Card extends Component {
   onChange = checkedValues => {
@@ -65,7 +72,7 @@ class Card extends Component {
                   <span>
                     <span onClick={() => shareOnFacebook(card.share.url)}>
                       <img
-                        src="https://static.eventbree.com/trends/images/png/facebook-share-icon.png"
+                        src={facebookShare}
                         alt="face"
                         width="24px"
                         height="24px"
@@ -73,7 +80,7 @@ class Card extends Component {
                     </span>
                     <span onClick={() => shareOnTwitter(card.share.url)}>
                       <img
-                        src="https://static.eventbree.com/trends/images/png/twitter-share-icon.png"
+                        src={twitterShare}
                         alt="twitter"
                         width="24px"
                         height="24px"
@@ -85,16 +92,16 @@ class Card extends Component {
                       }
                     >
                       <img
-                        src="images/linkedin.svg"
-                        alt="twitter"
+                        src={linkedinShare}
+                        alt="linkedin"
                         width="24px"
                         height="24px"
                       />
                     </span>
                     <span onClick={() => shareOnGooglePlus(card.share.url)}>
                       <img
-                        src="images/google-plus.svg"
-                        alt="insta"
+                        src={googleplusShare}
+                        alt="G+"
                         width="24px"
                         height="24px"
                       />
@@ -105,7 +112,7 @@ class Card extends Component {
                       }
                     >
                       <img
-                        src="https://static.eventbree.com/trends/images/png/pinterest-share-icon.png"
+                        src={pinterestShare}
                         alt="pin"
                         width="24px"
                         height="24px"
@@ -117,7 +124,7 @@ class Card extends Component {
                       }
                     >
                       <img
-                        src="https://static.eventbree.com/trends/images/png/whatsapp-share.png"
+                        src={whatsappShare}
                         alt="whatsapp"
                         width="24px"
                         height="24px"
@@ -127,8 +134,8 @@ class Card extends Component {
                       onClick={() => shareWithMail(card.share.url, card.title)}
                     >
                       <img
-                        src="images/email.svg"
-                        alt="whatsapp"
+                        src={emailShare}
+                        alt="email"
                         width="24px"
                         height="24px"
                       />

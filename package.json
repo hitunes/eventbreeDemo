@@ -6,7 +6,6 @@
     "antd": "^3.8.1",
     "lodash": "^4.17.10",
     "lodash.debounce": "^4.0.8",
-    "plyr": "^3.4.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-masonry-component": "^6.2.1",

@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * Fetch response helper
  *
@@ -9,7 +11,7 @@ const data = {
     text: "Check this out",
     url: "https://trends.eventbree.com",
     hashtags: "eventbree,trends",
-    via: "_hitunes"
+    via: ""
   },
   pinterest: {
     shareUrl: "https://www.pinterest.com/pin/create/button/",
@@ -123,3 +125,144 @@ export const handleResponse = response => {
     }
   });
 };
+
+// detailpage content build
+export const formatter = content => {
+  let that = this;
+  return content.map((value, index) => {
+    switch (value.type) {
+      case "text":
+        return (
+          <div className="content__text-wrapper">
+            {formatText(value.content)}
+          </div>
+        );
+        break;
+      case "video":
+        return formatVideo(value.content);
+        break;
+      case "image_with_caption":
+        return (
+          <div className="content__image-wrapper">
+            {formatImg(value.content)}
+          </div>
+        );
+        break;
+      case "quote":
+        return formatBlockquote(value.content);
+        break;
+      default:
+        return <p>"Hello"</p>;
+    }
+  });
+};
+
+function formatText(content) {
+  return content.map((value, index) => {
+    switch (value.type) {
+      case "paragragh":
+        return (
+          <div>
+            <p>{value.text}</p>
+          </div>
+        );
+        break;
+      case "heading1":
+        return <h1>{value.text}</h1>;
+        break;
+      case "heading2":
+        return <h2>{value.text}</h2>;
+        break;
+      case "heading3":
+        return <h3>{value.text}</h3>;
+        break;
+      case "heading4":
+        return <h4>{value.text}</h4>;
+        break;
+      case "heading5":
+        return <h5>{value.text}</h5>;
+        break;
+      case "heading6":
+        return <h6>{value.text}</h6>;
+        break;
+      case "embed":
+        return <embed>{value.text}</embed>;
+        break;
+      case "list-item":
+        return <ul>(value.text.map(value => value.text))</ul>;
+        break;
+      case "o-list-item":
+        return <ol>(value.text.map(value => value.text))</ol>;
+        break;
+      case "image":
+        return <img src={value.url} alt="" />;
+        break;
+      case "preformatted":
+        return <pre>{value.text}</pre>;
+        break;
+      case "strong":
+        return <strong>{value.text}</strong>;
+        break;
+      case "em":
+        return <em>{value.text}</em>;
+        break;
+      case "label":
+        return <label>{value.text}</label>;
+        break;
+      default:
+        return value.text;
+    }
+  });
+}
+function formatVideo(content) {
+  let embedurl = content.embed_url.substring(17);
+  return (
+    <iframe
+      width={content.width}
+      height={content.height}
+      src={`${content.provider_url}/embed/${embedurl}`}
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      feature="oembed"
+    />
+  );
+}
+function formatImg(content) {
+  return (
+    <div className="card__img-wrapper">
+      <div className="card__summary-image">
+        <img src={content.url} alt={content.caption} />
+      </div>
+    </div>
+  );
+}
+function formatBlockquote(content) {
+  return (
+    <div className="blockquote">
+      <div>"</div>
+      <p className="blockquote__quote">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus
+        maxime eius odio rerum earum tempore elit. accusamus voluptates labore
+        dolorum eligendi.
+      </p>
+      <p className="blockquote__author">Itunu</p>
+    </div>
+  );
+}
+
+// images link
+export const facebookShare =
+  "https://static.eventbree.com/trends/images/png/facebook-share-icon.png";
+export const twitterShare =
+  "https://static.eventbree.com/trends/images/png/twitter-share-icon.png";
+export const linkedinShare =
+  "https://static.eventbree.com/trends/images/svg/linkedin.svg";
+export const googleplusShare =
+  "https://static.eventbree.com/trends/images/svg/google-plus.svg";
+export const pinterestShare =
+  "https://static.eventbree.com/trends/images/png/pinterest-share-icon.png";
+export const whatsappShare =
+  "https://static.eventbree.com/trends/images/png/whatsapp-share.png";
+export const emailShare =
+  "https://static.eventbree.com/trends/images/svg/email.svg";

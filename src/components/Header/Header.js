@@ -7,7 +7,7 @@ export const NavLinks = params => {
     <div className="navlinks__wrapper">
       <div className="nav__logo">
         <img
-          src="https://static.eventbree.com/trends/images/svg/logo-header.png"
+          src="https://static.eventbree.com/trends/images/png/logo-header.png"
           alt=""
         />
       </div>
