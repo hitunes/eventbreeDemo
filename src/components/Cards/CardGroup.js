@@ -33,7 +33,7 @@ class CardGroup extends Component {
     }
     return (
       <div>
-        <Masonry className={"container"}>
+        <Masonry className={"container"} key={new Date().getTime()}>
           {cardsInfo
             .filter(
               card =>

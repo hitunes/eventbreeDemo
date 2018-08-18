@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { API_URL } from "../../config";
-
+import { Link } from "react-router-dom";
 import {
   handleResponse,
   formatter,
@@ -21,6 +21,7 @@ import {
   quotes
 } from "../../helpers.js";
 import "./DetailPage.css";
+import Loader from "./Loader";
 
 export default class DetailPage extends Component {
   state = {
@@ -31,6 +32,7 @@ export default class DetailPage extends Component {
       event_type: {},
       content: []
     },
+    loading: true,
     similar: [],
     meta: [],
     links: [],
@@ -39,6 +41,7 @@ export default class DetailPage extends Component {
   componentDidMount() {
     const cardId = this.props.match.params.id;
     this.fetchCard(cardId);
+    console.log(cardId);
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {
@@ -58,6 +61,7 @@ export default class DetailPage extends Component {
         const meta = card.meta;
         const links = card.links;
         this.setState({
+          loading: false,
           card: cards,
           similar: similar,
           meta: meta,
@@ -66,18 +70,29 @@ export default class DetailPage extends Component {
       })
       .catch(error => {
         this.setState({
-          error: error
+          error: error.errorMessage,
+          loading: true
         });
       });
   }
 
   render() {
-    let { card, similar, meta, links } = this.state;
+    let { card, similar, loading } = this.state;
+    if (loading) {
+      return (
+        <div>
+          <Loader />
+        </div>
+      );
+    }
     return (
       <div className="detailpage__wrapper">
         {/* <div className="advert-here">
           <div className="advert-here-box">ADS</div>
         </div> */}
+        <Link to="/" className="detailpage__back-btn">
+          <span>Back</span>
+        </Link>
         <div className="card__detailpage__wrapper">
           <div className="detailpage__title">{card.title}</div>
           <div className="detailpage__slug-title">

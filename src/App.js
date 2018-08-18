@@ -28,46 +28,30 @@ import Footer from "./components/Footer/Footer";
 import "antd/dist/antd.css";
 import "./App.css";
 
-let currentTrend = {};
-let placedTrend = [];
+const getTrendsUrl = page => `${API_URL}/?page=${page}`;
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      trends: [],
-      searchables: [],
-      history: [],
-      counter: 1,
-      loading: true,
-      error: "",
-      searchTrends: "",
-      likeImg:
-        "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
-      likeCounter: 1,
-      value: ""
-    };
-    // this.Scroller = debounce(this.Scroller, 150);
-  }
+  state = {
+    trends: [],
+    searchables: [],
+    history: [],
+    counter: 1,
+    loading: true,
+    error: "",
+    searchTrends: "",
+    likeImg:
+      "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
+    likeCounter: 1,
+    value: ""
+  };
+  // this.Scroller = debounce(this.Scroller, 150);
+  // throttle(this.onScroll, 16);
   onChange = e => {
     this.state.value({
       value: e.target.value
     });
   };
   likeImgToggler = e => {
-    currentTrend = {
-      ...this.state.trends,
-      value: e.target.value
-    };
-    let history = this.state.history;
-    placedTrend.push(currentTrend.id);
-    this.setState({ history: placedTrend });
-    console.log(history, currentTrend, this.state.history);
-    //else {
-    //   let checkIndex = 0;
-    //   let trendChecker = placedTrend.filter((bet, index) => {
-    //     checkIndex = index;
-    //     return bet.matchId === currentMatch.matchId;
-    //   });
     this.setState({
       likeImg:
         "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg",
@@ -77,8 +61,8 @@ class App extends Component {
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });
   };
-  trendsApi = () => {
-    fetch(`${API_URL}/?page=${this.state.counter}`)
+  trendsApi = page => {
+    fetch(getTrendsUrl(this.state.counter))
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
@@ -91,51 +75,32 @@ class App extends Component {
         });
       })
       .catch(error => {
-        this.setState({
-          error: error.errorMessage,
-          loading: true
-        });
+        this.setState({ error: error.errorMessage, loading: true });
       });
   };
-  // onSetResult = (result, page) =>
-  //   page === 0
-  //     ? this.setState(applySetResult(result))
-  //     : this.setState(applyUpdateResult(result));
-  // searchAll = (url, size) => {
-  //   url === null
-  //     ? null
-  //     : fetch(`${API_URL}/all?`)
-  //         .then(handleResponse)
-  //         .then(data => {
-  //           const searchInfo = data.data;
-  //           this.setState({
-  //             searchables: [...this.state.searchables, ...searchInfo]
-  //           });
-  //         });
-  // };
   componentDidMount() {
     this.trendsApi();
-    // this.searchAll();
-    window.addEventListener("scroll", this.Scroller, false);
+    window.addEventListener("scroll", this.onScroll, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.Scroller, false);
+    window.removeEventListener("scroll", this.onScroll, false);
   }
-  // Scroller = (window.scroll = () => {
-  //   let scrollLoad = true;
-  //   if (window.scrollTop() >= document.Height() - window.Height() - 10) {
-  //     scrollLoad = false;
-  //     this.setState({ counter: this.state.counter + 1 });
+  // onScroll = (window.onscroll = () => {
+  //   if (
+  //     window.innerHeight + document.documentElement.scrollTop ===
+  //     document.body.offsetHeight
+  //   ) {
   //     this.trendsApi();
+  //     this.setState({ counter: this.state.counter + 1 });
   //   }
   // });
-  // Scroller = (window.onscroll = () => {
+  // onScroll = (window.scroll = () => {
   //   if (
-  //     window.innerHeight + window.scrollY >=
-  //     document.body.offsetHeight - 700
+  //     window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+  //     this.state.trends.length
   //   ) {
-  //     this.setState({ counter: this.state.counter + 1 });
   //     this.trendsApi();
+  //     this.setState({ counter: this.state.counter + 1 });
   //   }
   // });
   render() {
