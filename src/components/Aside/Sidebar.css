@@ -11,9 +11,9 @@
 .sidebar {
     position: fixed;
     top: 0;
-    left: -274px;
+    left: -73%;
     height: 100%;
-    width: 274px;
+    width: 73%;
     transition: left .3s ease-in-out;
     background-color: white;
     z-index: 10;
