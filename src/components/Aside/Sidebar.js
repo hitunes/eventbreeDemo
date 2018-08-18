@@ -4,16 +4,34 @@ import "./Sidebar.css";
 
 export const Sidebar = ({ isOpen, handleViewSidebar }) => {
   let sidebarClass = isOpen ? "sidebar open" : "sidebar";
+  let sidebarOverlay = isOpen ? "sidebar__overlay" : "sidebarOverlay";
   return (
-    <aside className={sidebarClass}>
-      <div className="aside__logo-wrapper">
-        <div className="aside__logo">
-          <img src={logoHeader} alt="EVENTBREE" />
+    <aside>
+      <div className="aside__logo-wrapper" className={sidebarClass}>
+        <div className="aside__header">
+          <div className="aside__logo">
+            <img src={logoHeader} alt="EVENTBREE" />
+          </div>
+          <div className="sidebar__close" onClick={handleViewSidebar}>
+            <img src="images/close-btn.png" alt="" />
+          </div>
         </div>
-        <div className="sidebar__close" onClick={handleViewSidebar}>
-          <img src="images/close-btn.png" alt="" />
-        </div>
+        <ul>
+          <li>
+            <a href="#">Tv</a>
+          </li>
+          <li>
+            <a href="#">Trends</a>
+          </li>
+          <li>
+            <a href="#">Market Place</a>
+          </li>
+          <li>
+            <a href="#">Join Partner Network</a>
+          </li>
+        </ul>
       </div>
+      <div className={sidebarOverlay} onClick={handleViewSidebar} />
     </aside>
   );
 };
