@@ -3,9 +3,12 @@ import { Button } from "antd";
 import { logoHeader } from "../../helpers.js";
 import "./Header.css";
 
-export const NavLinks = params => {
+export const NavLinks = ({ handleViewSidebar }) => {
   return (
     <div className="navlinks__wrapper">
+      <div className="nav__sidebar-btn" onClick={handleViewSidebar}>
+        <img src="images/hamburger-menu.png" alt="ham" />
+      </div>
       <div className="nav__logo">
         <img src={logoHeader} alt="" />
       </div>
@@ -26,20 +29,5 @@ export const FrontPageTitle = params => {
     <div className="frontpagetitle">
       Inspirations and ideas for your events based on popular trends
     </div>
-  );
-};
-
-export const Aside = () => {
-  return (
-    <aside>
-      <div className="aside__logo-wrapper">
-        <div className="aside__logo">
-          <img src={logoHeader} alt="EVENTBREE" />
-        </div>
-        <div>
-          <img src="images/close-btn.png" alt="" />
-        </div>
-      </div>
-    </aside>
   );
 };

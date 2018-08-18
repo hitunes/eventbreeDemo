@@ -18,10 +18,10 @@ import debounce from "lodash/debounce";
 import {
   FrontPageTitle,
   GlobalPageTitle,
-  NavLinks,
-  Aside
+  NavLinks
 } from "./components/Header/Header";
 import CardGroup from "./components/Cards/CardGroup";
+import { Sidebar } from "./components/Aside/Sidebar";
 import SearchInput from "./components/Search/Search";
 import DetailPage from "./components/CardDetail/DetailPage";
 import Footer from "./components/Footer/Footer";
@@ -32,6 +32,7 @@ const getTrendsUrl = page => `${API_URL}/?page=${page}`;
 
 class App extends Component {
   state = {
+    sidebarOpen: false,
     trends: [],
     searchables: [],
     history: [],
@@ -50,6 +51,9 @@ class App extends Component {
     this.state.value({
       value: e.target.value
     });
+  };
+  handleViewSidebar = () => {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
   };
   likeImgToggler = e => {
     this.setState({
@@ -135,8 +139,11 @@ class App extends Component {
         )}
         <BrowserRouter>
           <div>
-            <NavLinks />
-            <Aside />
+            <NavLinks handleViewSidebar={this.handleViewSidebar} />
+            <Sidebar
+              isOpen={this.state.sidebarOpen}
+              handleViewSidebar={this.handleViewSidebar}
+            />
             <Route
               exact
               path="/"

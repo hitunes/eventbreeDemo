@@ -5,6 +5,13 @@
     text-align: center
 }
 
+.nav__sidebar-btn {
+    position: absolute;
+    top: 25px;
+    left: 18px;
+    display: none
+}
+
 .globalpagetitle {
     display: flex;
     justify-content: center;
@@ -40,22 +47,6 @@
     height: 40px;
 }
 
-aside {
-    width: 272px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    background: #fff;
-    border: 1px solid black;
-    z-index: 10;
-    display: none !important
-}
-
-.aside__logo-wrapper {
-    display: flex;
-    justify-content: space-between
-}
-
 .nav__links>button:active,
 .nav__links>button:focus {
     border: white;
@@ -67,7 +58,7 @@ aside {
 @media screen and (max-width: 768px) {
     .globalpagetitle {
         font-size: 26px;
-        margin-top: 40px;
+        margin-top: 10px;
     }
     .frontpagetitle {
         margin-bottom: 38px;
@@ -76,6 +67,9 @@ aside {
     }
     .nav__links {
         display: none
+    }
+    .nav__sidebar-btn {
+        display: block
     }
 }
 

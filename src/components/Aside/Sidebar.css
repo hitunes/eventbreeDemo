@@ -1,0 +1,29 @@
+/* aside {
+    width: 272;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    border: 1px solid black;
+    z-index: 10;
+} */
+
+.aside__logo-wrapper {
+    display: flex;
+    justify-content: space-between
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -272px;
+    height: 100%;
+    width: 272px;
+    transition: left .3s ease-in-out;
+    background-color: white;
+    z-index: 10;
+}
+
+.sidebar.open {
+    left: 0;
+}
