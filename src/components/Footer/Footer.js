@@ -96,6 +96,9 @@ export default class Footer extends Component {
                   </span>
                 </span>
               </div>
+              <div className="mobilefooter__links-right">
+                <Button>Become a supply partner</Button>
+              </div>
             </div>
             <div className="footer__copyrights">
               <span className="copyright-year">© 2018</span>

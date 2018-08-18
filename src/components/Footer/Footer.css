@@ -41,6 +41,19 @@
     color: white
 }
 
+.mobilefooter__links-right>Button {
+    font-size: 8px;
+    border-radius: 8px;
+    border: solid 1px #ffffff;
+    background: none;
+    color: white;
+    margin-right: 40px;
+    margin-bottom: 15px;
+    position: absolute;
+    bottom: 11%;
+    right: -22px;
+}
+
 .footer__links-right>Button:nth-child(1) {
     margin-right: 40px;
     margin-bottom: 15px;
