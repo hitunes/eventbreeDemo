@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { logoHeader } from "../../helpers.js";
 import "./Header.css";
@@ -9,9 +10,9 @@ export const NavLinks = ({ handleViewSidebar }) => {
       <div className="nav__sidebar-btn" onClick={handleViewSidebar}>
         <img src="images/hamburger-menu.png" alt="ham" />
       </div>
-      <div className="nav__logo">
-        <img src={logoHeader} alt="" />
-      </div>
+      <Link to="/" className="nav__logo">
+        <img src={logoHeader} alt="EventBree Logo" />
+      </Link>
       <div className="nav__links">
         <span>Marketplace</span>
         <span>Trends</span>

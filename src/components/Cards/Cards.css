@@ -171,5 +171,14 @@
     }
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .container {
+        margin-left: 28px;
+    }
+    .card-image {
+        width: 356px;
+    }
+}
+
 
 /* @media screen and (max-width: 960px) {} */
