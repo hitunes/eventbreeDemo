@@ -33,7 +33,7 @@ class App extends Component {
     trends: [],
     searchables: [],
     history: [],
-    counter: 0,
+    counter: 1,
     loading: true,
     error: "",
     searchTrends: "",
@@ -61,8 +61,8 @@ class App extends Component {
     this.setState({ searchTrends: e.target.value });
   };
 
-  trendsApi = () => {
-    fetch(`${API_URL}/?page=${this.state.counter}`)
+  trendsApi = page => {
+    fetch(`${API_URL}/?page=${page}`)
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
@@ -80,11 +80,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.trendsApi();
+    this.trendsApi(this.state.counter);
   }
   onPaginatedSearch = () => {
-    this.trendsApi();
-    this.setState({ counter: this.state.counter++ });
+    console.log(this.state.counter);
+    this.trendsApi(this.state.counter + 1);
   };
 
   render() {
