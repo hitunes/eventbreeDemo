@@ -42,7 +42,6 @@ class Card extends Component {
           <div className="card-details">
             <div
               className="card-title"
-              onUpdate={() => window.scrollTo(0, 0)}
               onClick={() => history.push(`/${card.category.slug}/${card.id}`)}
             >
               {card.title}

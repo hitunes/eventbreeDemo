@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Masonry from "react-masonry-component";
+import { Button } from "antd";
 import Card from "./Card";
 import Loading from "../Loading";
 // import { connect } from "react-redux";
@@ -7,9 +8,17 @@ import Loading from "../Loading";
 import "./Cards.css";
 
 class CardGroup extends Component {
-  // componentWillMount() {
-  //   this.props.fetchTrends();
-  // }
+  state = {
+    loading: false,
+    iconLoading: false
+  };
+  enterLoading = () => {
+    this.setState({ loading: true });
+  };
+
+  enterIconLoading = () => {
+    this.setState({ iconLoading: true });
+  };
   render() {
     let {
       cardsInfo,
@@ -19,7 +28,8 @@ class CardGroup extends Component {
       likeImg,
       likeCounter,
       likeImgToggler,
-      onChange
+      onChange,
+      onPaginatedSearch
     } = this.props;
     if (loading) {
       return (
@@ -55,6 +65,9 @@ class CardGroup extends Component {
               />
             ))}
         </Masonry>
+        <Button type="primary" onClick={onPaginatedSearch}>
+          Click me!
+        </Button>
       </div>
     );
   }

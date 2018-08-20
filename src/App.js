@@ -14,7 +14,6 @@ import {
 // import { Provider } from "react-redux";
 // import store from "./store";
 //redux
-import debounce from "lodash/debounce";
 import {
   FrontPageTitle,
   GlobalPageTitle,
@@ -27,8 +26,6 @@ import DetailPage from "./components/CardDetail/DetailPage";
 import Footer from "./components/Footer/Footer";
 import "antd/dist/antd.css";
 import "./App.css";
-
-const getTrendsUrl = page => `${API_URL}/?page=${page}`;
 
 class App extends Component {
   state = {
@@ -45,8 +42,6 @@ class App extends Component {
     likeCounter: 1,
     value: ""
   };
-  // this.Scroller = debounce(this.Scroller, 150);
-  // throttle(this.onScroll, 16);
   onChange = e => {
     this.state.value({
       value: e.target.value
@@ -66,8 +61,8 @@ class App extends Component {
     this.setState({ searchTrends: e.target.value });
   };
 
-  trendsApi = page => {
-    fetch(getTrendsUrl(page))
+  trendsApi = () => {
+    fetch(`${API_URL}/?page=${this.state.counter}`)
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
@@ -83,9 +78,15 @@ class App extends Component {
         this.setState({ error: error.errorMessage, loading: true });
       });
   };
+
   componentDidMount() {
-    this.trendsApi(this.state.counter);
+    this.trendsApi();
   }
+  onPaginatedSearch = () => {
+    this.trendsApi();
+    this.setState({ counter: this.state.counter++ });
+  };
+
   render() {
     return (
       <div className="App">
@@ -143,6 +144,7 @@ class App extends Component {
                     likeCounter={this.state.likeCounter}
                     likeImgToggler={this.likeImgToggler}
                     onChange={this.onChange}
+                    onPaginatedSearch={this.onPaginatedSearch}
                   />
                 </div>
               )}

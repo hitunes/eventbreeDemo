@@ -4,24 +4,16 @@
     padding: 82px 100px;
     color: #262a39;
     font-size: 16px;
-    margin-top: 300px;
+    margin-top: 100px;
     position: relative;
-}
-
-.footer__logo,
-.footer__links {
-    margin-bottom: 40px;
 }
 
 .footer__links {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.footer__connect {
-    display: flex;
-    margin-bottom: 100px;
+    margin-top: 52px;
+    margin-bottom: 80px;
 }
 
 .footer__connect-title {
@@ -29,11 +21,11 @@
 }
 
 .footer__connect-icons span {
-    margin-right: 32px
+    margin-right: 32px;
 }
 
-.footer__links-left>span:nth-child(1) {
-    margin-right: 40px
+.footer__links-left>span {
+    margin-right: 80px
 }
 
 .footer__links-right>Button {
@@ -53,8 +45,34 @@
     background: none !important
 }
 
-.copyright-links>span:nth-child(1) {
-    margin-right: 40px
+.footer__links-right {
+    height: 32px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #262a39;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+.footer__head-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px
+}
+
+.footer__copyrights {
+    text-align: center;
+}
+
+.footer__copyrights>span {
+    margin-right: 24px
 }
 
 @media screen and (max-width: 763px) {
@@ -102,7 +120,7 @@
         margin-right: 16px;
         font-size: 14px;
     }
-    .footer__copyrights {
+    .mobilefooter__copyrights {
         font-size: 8px;
         display: flex;
         justify-content: space-between
