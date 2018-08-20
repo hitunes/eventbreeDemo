@@ -65,6 +65,7 @@ class App extends Component {
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });
   };
+
   trendsApi = page => {
     fetch(getTrendsUrl(page))
       .then(handleResponse)
@@ -84,32 +85,8 @@ class App extends Component {
   };
   componentDidMount() {
     this.trendsApi(this.state.counter);
-    window.addEventListener("scroll", this.onScroll, false);
   }
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-  }
-  // onScroll = (window.onscroll = () => {
-  //   if (
-  //     window.innerHeight + document.documentElement.scrollTop ===
-  //     document.body.offsetHeight
-  //   ) {
-  //     this.trendsApi();
-  //     this.setState({ counter: this.state.counter + 1 });
-  //   }
-  // });
-  // onScroll = (window.scroll = () => {
-  //   if (
-  //     window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
-  //     this.state.trends.length
-  //   ) {
-  //     this.trendsApi(this.state.counter + 1);
-  //     console.log(this.state.counter + 1);
-  //   }
-  // });
   render() {
-    console.log(this.state.counter++);
-
     return (
       <div className="App">
         {window.innerWidth < 769 ? (

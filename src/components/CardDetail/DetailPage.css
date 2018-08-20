@@ -46,6 +46,8 @@
 
 .detailpage__share-btn {
     margin-bottom: 54px;
+    color: #3b87bc;
+    cursor: pointer;
 }
 
 .detailpage__share-btn>span {

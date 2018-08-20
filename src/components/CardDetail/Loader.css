@@ -3,6 +3,26 @@
     padding-right: 75px;
 }
 
+.loader-contents {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.loader__slug {
+    display: flex
+}
+
+.loader__slug>div {
+    width: 20%;
+    height: 9px;
+    background: #E6ECF1;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    border-radius: 5px;
+    animation: loading 1s 1s infinite;
+    animation-timing-function: ease-in-out
+}
+
 .loader-contents>div {
     height: 10px;
     width: 100%;
@@ -44,8 +64,8 @@
 
 @media screen and (max-width: 768px) {
     .loader-wrapper {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 37px;
+        padding-right: 42px;
     }
     .loader-cards>div {
         margin-right: 0px;

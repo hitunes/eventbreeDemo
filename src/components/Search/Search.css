@@ -16,7 +16,7 @@
 }
 
 .ant-dropdown {
-    font-family: ‘Poppins’, sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
 }
 
 .anticon-search {
@@ -25,6 +25,7 @@
 
 ::-webkit-input-placeholder {
     color: #707070 !important;
+    font-family: "Poppins", sans-serif !important;
 }
 
 .ant-input-affix-wrapper .ant-input:not(:first-child) {
@@ -49,7 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold !important;
     height: 100%;
 }
 
@@ -67,8 +67,7 @@
 }
 
 .ant-dropdown-menu-submenu-title {
-    font-weight: bold !important;
-    font-size: 12px !important;
+    font-family: "Poppins", sans-serif !important;
 }
 
 .ant-dropdown-menu-sub {

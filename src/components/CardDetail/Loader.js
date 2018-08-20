@@ -6,14 +6,14 @@ export default class Loader extends Component {
     return (
       <div className="loader-wrapper">
         <div className="loader-contents">
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
+          <div style={{ height: "18px" }} />
+          <div style={{ height: "18px", width: "50%", marginBottom: "15px" }} />
+          <span className="loader__slug" style={{ marginBottom: "5px" }}>
+            <div />
+            <div />
+            <div />
+          </span>
+          <div style={{ height: "8px", width: "10%", marginBottom: "5px" }} />
           <div />
           <div />
           <div />

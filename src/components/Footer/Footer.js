@@ -5,16 +5,16 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer__container">
-        <div className="footer__logo">
-          <img
-            src="https://static.eventbree.com/trends/images/png/logo-footer.png"
-            alt="footer"
-            width="106px"
-            height="35px"
-          />
-        </div>
         {window.innerWidth > 769 ? (
           <div>
+            <div className="footer__logo">
+              <img
+                src="https://static.eventbree.com/trends/images/png/logo-header.png"
+                alt="footer"
+                width="106px"
+                height="45px"
+              />
+            </div>
             <div className="footer__links">
               <div className="footer__links-left">
                 <span>Helpdesk</span>
@@ -64,14 +64,24 @@ export default class Footer extends Component {
           </div>
         ) : (
           <div>
+            <div className="mobilefooter__head-wrapper">
+              <div className="footer__logo">
+                <img
+                  src="https://static.eventbree.com/trends/images/png/logo-header.png"
+                  alt="footer"
+                  width="106px"
+                  height="45px"
+                />
+              </div>
+              <div className="mobilefooter__links-right">
+                Become a supply partner
+              </div>
+            </div>
             <div className="mobile-footer__links">
               <span>Helpdesk</span>
               <span>Academy</span>
               <span>Contact Us</span>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
               <div className="footer__connect">
-                <span className="footer__connect-title">Connect with Us:</span>
                 <span className="footer__connect-icons">
                   <span>
                     <Icon type="facebook" />
@@ -96,15 +106,14 @@ export default class Footer extends Component {
                   </span>
                 </span>
               </div>
-              <div className="mobilefooter__links-right">
-                <Button>Become a supply partner</Button>
-              </div>
             </div>
             <div className="footer__copyrights">
               <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
+              <span>Privacy Policy</span>
+              <span>Terms of Service</span>
             </div>
           </div>
         )}

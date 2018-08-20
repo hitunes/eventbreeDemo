@@ -14,7 +14,7 @@
     left: -73%;
     height: 100%;
     width: 73%;
-    transition: left .3s ease-in-out;
+    transition: left .1s ease-in;
     background-color: white;
     z-index: 16;
 }
@@ -39,14 +39,13 @@
 .sidebar__ul>li {
     list-style: none;
     height: 61px;
-    border-top: solid 0.2px #e5e5e5;
     display: flex;
     align-items: center;
     padding-left: 24px;
 }
 
 li>a {
-    font-size: 12px;
+    font-size: 14px;
     color: #262a39;
 }
 
@@ -59,16 +58,16 @@ li>a {
     position: fixed;
     right: 0;
     top: 0;
-    transition: right .3s ease-in-out;
+    transition: left 1s ease-in;
 }
 
 .sidebarOverlay {
     position: fixed;
     top: 0;
-    right: -27%;
+    left: -27%;
     height: 100%;
     width: 27%;
-    transition: right .3s ease-in-out;
+    transition: left .1s ease-in;
     background-color: white;
     z-index: 11;
 }

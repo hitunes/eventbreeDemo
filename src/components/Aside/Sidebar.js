@@ -18,7 +18,7 @@ export const Sidebar = ({ isOpen, handleViewSidebar }) => {
         </div>
         <ul className="sidebar__ul">
           <li>
-            <a href="#">Tv</a>
+            <a href="#">TV</a>
           </li>
           <li>
             <a href="#">Trends</a>

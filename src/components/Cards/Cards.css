@@ -50,60 +50,72 @@
 .card-title-btns {
     color: #fff;
     cursor: pointer;
-    margin-top: 20px
+    margin-top: 20px;
+    display: flex;
 }
 
 .card-title-btns>span:nth-child(1) {
     margin-right: 54px
 }
 
-
-/* pop up */
-
-.popup-content {
-    border: none !important;
-    border-radius: 4px;
-    transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+.sharebtn__wrapper>span {
+    margin-right: 12px;
 }
 
-.popup-content>span>span>img {
-    margin-right: 14px;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
+.sharebtn__wrapper>span:last-child {
+    margin-right: 0;
 }
 
-@keyframes bounce {
-    0%,
-    100%,
-    20%,
-    50%,
-    80% {
-        -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-        transform: translateY(0)
-    }
-    40% {
-        -webkit-transform: translateY(-15px);
-        -ms-transform: translateY(-15px);
-        transform: translateY(-15px)
-    }
-    60% {
-        -webkit-transform: translateY(-5px);
-        -ms-transform: translateY(-5px);
-        transform: translateY(-5px)
-    }
-}
-
-.popup-content>span>span>img:hover {
+.sharebtn__wrapper>span>img:hover {
+    animation: shake 0.9s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
     cursor: pointer;
-    animation-name: bounce;
-    -moz-animation-name: bounce;
+}
+
+.ant-modal-content {
+    border-radius: 13px !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.16) !important;
+    padding-bottom: 61px;
+}
+
+.ant-modal-header {
+    border-bottom: 0 !important;
+    padding-top: 0 !important;
+    text-align: center;
+    font-family: "Poppins", sans-serif !important;
+    margin-bottom: 14px
+}
+
+.ant-modal-close {
+    left: 84% !important;
+    position: relative !important;
+}
+
+.ant-modal-body {
+    padding: 0 20px !important;
+    display: flex;
+    justify-content: space-around;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 
