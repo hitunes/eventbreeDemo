@@ -1,5 +1,6 @@
 .ant-input {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16) !important;
+    border: 0px solid #d9d9d9 !important;
 }
 
 .ant-input:hover {
@@ -12,6 +13,10 @@
 
 .ant-input-search-icon {
     display: none !important
+}
+
+.ant-dropdown {
+    font-family: ‘Poppins’, sans-serif !important;
 }
 
 .anticon-search {
@@ -61,12 +66,9 @@
     color: #fff;
 }
 
-.ant-dropdown {
-    font-family: 'Montserrat', sans-serif !important;
-}
-
 .ant-dropdown-menu-submenu-title {
     font-weight: bold !important;
+    font-size: 12px !important;
 }
 
 .ant-dropdown-menu-sub {
@@ -93,7 +95,8 @@
 
 @media screen and (min-width: 320px) and (max-width: 359px) {
     .searchbox {
-        width: 228px !important
+        width: 228px !important;
+        height: 40px !important;
     }
      ::-webkit-input-placeholder {
         font-size: 10px !important
@@ -103,6 +106,12 @@
     }
     .ant-dropdown-link {
         font-size: 10px !important
+    }
+    .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 37px !important;
+    }
+    .ant-dropdown-menu-submenu-title {
+        font-size: 12px !important;
     }
 }
 
@@ -111,7 +120,8 @@
 
 @media screen and (min-width: 360px) and (max-width: 374px) {
     .searchbox {
-        width: 228px !important
+        width: 228px !important;
+        height: 40px !important;
     }
      ::-webkit-input-placeholder {
         font-size: 10px !important
@@ -121,6 +131,12 @@
     }
     .ant-dropdown-link {
         font-size: 10px !important
+    }
+    .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 37px !important;
+    }
+    .ant-dropdown-menu-submenu-title {
+        font-size: 12px !important;
     }
 }
 
@@ -129,7 +145,8 @@
 
 @media screen and (min-width: 375px)and (max-width: 410px) {
     .searchbox {
-        width: 228px !important
+        width: 228px !important;
+        height: 40px !important;
     }
      ::-webkit-input-placeholder {
         font-size: 10px !important
@@ -139,12 +156,19 @@
     }
     .ant-dropdown-link {
         font-size: 10px !important
+    }
+    .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 37px !important;
+    }
+    .ant-dropdown-menu-submenu-title {
+        font-size: 12px !important;
     }
 }
 
 @media screen and (min-width: 411px) and (max-width: 763px) {
     .searchbox {
-        width: 228px !important
+        width: 228px !important;
+        height: 40px !important;
     }
      ::-webkit-input-placeholder {
         font-size: 10px !important
@@ -154,6 +178,12 @@
     }
     .ant-dropdown-link {
         font-size: 10px !important
+    }
+    .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 37px !important;
+    }
+    .ant-dropdown-menu-submenu-title {
+        font-size: 12px !important;
     }
 }
 

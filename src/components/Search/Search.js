@@ -22,7 +22,7 @@ export default class SearchInput extends Component {
               }}
             />
           }
-          placeholder="Search for trends..."
+          placeholder="Search for Trends"
           onChange={handleSearch}
           onSearch={value => console.log(value)}
         />

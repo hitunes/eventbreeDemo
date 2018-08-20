@@ -16,7 +16,7 @@ export const Sidebar = ({ isOpen, handleViewSidebar }) => {
             <img src="images/close-btn.png" alt="" />
           </div>
         </div>
-        <ul>
+        <ul className="sidebar__ul">
           <li>
             <a href="#">Tv</a>
           </li>

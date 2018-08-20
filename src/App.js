@@ -36,7 +36,7 @@ class App extends Component {
     trends: [],
     searchables: [],
     history: [],
-    counter: 1,
+    counter: 0,
     loading: true,
     error: "",
     searchTrends: "",
@@ -66,7 +66,7 @@ class App extends Component {
     this.setState({ searchTrends: e.target.value });
   };
   trendsApi = page => {
-    fetch(getTrendsUrl(this.state.counter))
+    fetch(getTrendsUrl(page))
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
@@ -83,7 +83,7 @@ class App extends Component {
       });
   };
   componentDidMount() {
-    this.trendsApi();
+    this.trendsApi(this.state.counter);
     window.addEventListener("scroll", this.onScroll, false);
   }
   componentWillUnmount() {
@@ -103,11 +103,13 @@ class App extends Component {
   //     window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
   //     this.state.trends.length
   //   ) {
-  //     this.trendsApi();
-  //     this.setState({ counter: this.state.counter + 1 });
+  //     this.trendsApi(this.state.counter + 1);
+  //     console.log(this.state.counter + 1);
   //   }
   // });
   render() {
+    console.log(this.state.counter++);
+
     return (
       <div className="App">
         {window.innerWidth < 769 ? (
