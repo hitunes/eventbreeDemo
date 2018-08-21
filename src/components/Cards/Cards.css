@@ -112,8 +112,8 @@
     font-weight: 600;
     color: #3b87bc;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
     position: relative;
 }
 
@@ -127,7 +127,7 @@
     margin-left: 0px !important;
     margin-top: 0px;
     opacity: 0;
-    transition: all 0.8s
+    transition: all 0.4s
 }
 
 .clickMe:active:after {

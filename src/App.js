@@ -77,19 +77,32 @@ class App extends Component {
       .catch(error => {
         this.setState({ error: error.errorMessage, loading: true });
       });
+    fetch(`${API_URL}/?all`)
+      .then(handleResponse)
+      .then(data => {
+        const searchTrends = data.data;
+        this.setState({
+          searchables: [...this.state.searchables, ...searchTrends]
+        });
+      })
+      .catch(error => {
+        this.setState({ error: error.errorMessage, loading: true });
+      });
   };
 
   componentDidMount() {
     this.trendsApi();
   }
-  onPaginatedSearch = () => {
-    this.trendsApi();
+  onPaginatedSearch = e => {
+    e.preventDefault();
     this.setState(prevState => ({
       counter: prevState.counter + 1
     }));
+    this.trendsApi();
   };
 
   render() {
+    console.log(this.state.searchables);
     return (
       <div className="App">
         {window.innerWidth < 769 ? (

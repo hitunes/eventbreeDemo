@@ -92,7 +92,7 @@
         margin-bottom: 24px
     }
     .mobilefooter__links-right {
-        width: 126px;
+        padding: 0 25px;
         height: 32px;
         border-radius: 4px;
         background-color: #ffffff;
