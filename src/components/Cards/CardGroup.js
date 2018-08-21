@@ -65,9 +65,9 @@ class CardGroup extends Component {
               />
             ))}
         </Masonry>
-        <Button type="primary" onClick={onPaginatedSearch}>
-          Click me!
-        </Button>
+        <div className="clickMe" onClick={onPaginatedSearch}>
+          <span>Show More!</span>
+        </div>
       </div>
     );
   }

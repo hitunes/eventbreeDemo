@@ -1,4 +1,5 @@
 import React from "react";
+import Plyr from "react-plyr";
 
 /**
  * Fetch response helper
@@ -217,14 +218,9 @@ function formatText(content) {
 function formatVideo(content) {
   let embedurl = content.embed_url.substring(17);
   return (
-    <iframe
-      width={content.width}
-      height={content.height}
-      src={`${content.provider_url}/embed/${embedurl}`}
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      feature="oembed"
+    <Plyr
+      type="youtube" // or "vimeo"
+      videoId={content.embed_url}
     />
   );
 }

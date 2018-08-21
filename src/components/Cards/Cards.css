@@ -98,6 +98,45 @@
     justify-content: space-around;
 }
 
+.clickMe {
+    width: 121px;
+    height: 32px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 45px auto;
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b87bc;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    position: relative;
+}
+
+.clickMe:after {
+    content: "";
+    background: #3b87bc;
+    display: block;
+    position: absolute;
+    padding-top: 30%;
+    padding-left: 110%;
+    margin-left: 0px !important;
+    margin-top: 0px;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.clickMe:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
 @keyframes shake {
     10%,
     90% {

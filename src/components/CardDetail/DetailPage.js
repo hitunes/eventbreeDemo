@@ -211,6 +211,7 @@ export default class DetailPage extends Component {
                 <a href={value.share.url}>
                   <img src={value.image} alt="similar-trends" />
                 </a>
+                <div>{value.title}</div>
               </div>
             ))}
           </div>
