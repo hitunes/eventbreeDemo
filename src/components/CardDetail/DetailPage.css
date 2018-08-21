@@ -16,6 +16,10 @@
     right: 12px;
 }
 
+.detailpage__back-btn:hover {
+    background-color: #EEEEF7
+}
+
 .detailpage__back-btn>span {
     font-size: 10px;
     color: #707070;

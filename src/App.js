@@ -35,6 +35,7 @@ class App extends Component {
     history: [],
     counter: 1,
     loading: true,
+    loadingMore: false,
     error: "",
     searchTrends: "",
     likeImg:
@@ -62,12 +63,14 @@ class App extends Component {
   };
 
   trendsApi = () => {
+    this.setState({ loadingMore: true });
     fetch(`${API_URL}/?page=${this.state.counter}`)
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
         this.setState({
           loading: false,
+          loadingMore: false,
           trends:
             this.state.trends.length > 0
               ? [...this.state.trends, ...trendsInfo]
@@ -153,6 +156,7 @@ class App extends Component {
                   />
                   <CardGroup
                     loading={this.state.loading}
+                    loadingMore={this.state.loadingMore}
                     cardsInfo={this.state.trends}
                     searchTrends={this.state.searchTrends}
                     likeImg={this.state.likeImg}

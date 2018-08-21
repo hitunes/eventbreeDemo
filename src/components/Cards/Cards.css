@@ -117,6 +117,10 @@
     position: relative;
 }
 
+.clickMe:hover {
+    background-color: #EEEEF7
+}
+
 .clickMe:after {
     content: "";
     background: #3b87bc;

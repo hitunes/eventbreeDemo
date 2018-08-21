@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Masonry from "react-masonry-component";
-import { Button } from "antd";
+import { Spin } from "antd";
 import Card from "./Card";
 import Loading from "../Loading";
 // import { connect } from "react-redux";
@@ -8,21 +8,11 @@ import Loading from "../Loading";
 import "./Cards.css";
 
 class CardGroup extends Component {
-  state = {
-    loading: false,
-    iconLoading: false
-  };
-  enterLoading = () => {
-    this.setState({ loading: true });
-  };
-
-  enterIconLoading = () => {
-    this.setState({ iconLoading: true });
-  };
   render() {
     let {
       cardsInfo,
       loading,
+      loadingMore,
       error,
       searchTrends,
       likeImg,
@@ -66,7 +56,7 @@ class CardGroup extends Component {
             ))}
         </Masonry>
         <div className="clickMe" onClick={onPaginatedSearch}>
-          <span>Show More!</span>
+          {loadingMore ? <Spin /> : <span>Show More!</span>}
         </div>
       </div>
     );

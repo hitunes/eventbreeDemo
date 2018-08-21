@@ -60,6 +60,10 @@
     cursor: pointer;
 }
 
+.footer__links-right:hover {
+    background-color: #EEEEF7
+}
+
 .footer__head-wrapper {
     display: flex;
     justify-content: space-between;
