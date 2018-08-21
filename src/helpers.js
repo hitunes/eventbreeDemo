@@ -216,7 +216,7 @@ function formatText(content) {
   });
 }
 function formatVideo(content) {
-  let embedurl = content.embed_url.substring(17);
+  // let embedurl = content.embed_url.substring(17);
   return (
     <Plyr
       type="youtube" // or "vimeo"
