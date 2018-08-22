@@ -46,7 +46,7 @@ export default class DetailPage extends Component {
   componentDidMount() {
     const cardId = this.props.match.params.id;
     this.fetchCard(cardId);
-    console.log(cardId);
+    window.scrollTo(0, 0);
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {

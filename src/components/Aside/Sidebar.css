@@ -52,22 +52,23 @@ li>a {
 .sidebar__overlay {
     background-color: black;
     height: 100%;
-    width: 27%;
+    width: 100%;
     opacity: 0.5;
     z-index: 11;
     position: fixed;
     right: 0;
     top: 0;
-    transition: left 1s ease-in;
+    transition: left .1s ease-in;
 }
 
 .sidebarOverlay {
     position: fixed;
     top: 0;
-    left: -27%;
+    left: 0%;
     height: 100%;
-    width: 27%;
+    width: 100%;
     transition: left .1s ease-in;
     background-color: white;
     z-index: 11;
+    display: none
 }

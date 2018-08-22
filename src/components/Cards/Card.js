@@ -26,17 +26,18 @@ class Card extends Component {
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
   }
-  onChange = checkedValues => {
-    console.log("checked = ", checkedValues);
-  };
-
-  Toggler = card => {
-    console.log(card);
-  };
   render() {
-    let { card, history, likeImg, likeImgToggler } = this.props;
+    let {
+      card,
+      history,
+      likeImg,
+      updateLikes,
+      likes,
+      updated,
+      selected
+    } = this.props;
     return (
-      <div className="card" onClick={() => this.Toggler(card)}>
+      <div className="card">
         <div className="card-image">
           <img src={card.image} alt="check" />
           <div className="card-details">
@@ -47,7 +48,7 @@ class Card extends Component {
               {card.title}
             </div>
             <div className="card-title-btns">
-              <span onClick={likeImgToggler}>
+              <span onClick={() => updateLikes(card.id, updated)}>
                 <img
                   src={likeImg}
                   alt="like"
@@ -55,7 +56,7 @@ class Card extends Component {
                   height="20px"
                   style={{ marginRight: "8px" }}
                 />
-                12
+                {likes}
               </span>
               <span>
                 <div onClick={() => this.setModal2Visible(true)}>

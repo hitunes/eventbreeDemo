@@ -36,11 +36,12 @@ class App extends Component {
     counter: 1,
     loading: true,
     loadingMore: false,
+    likes: 124,
+    updated: false,
     error: "",
     searchTrends: "",
     likeImg:
       "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
-    likeCounter: 1,
     value: ""
   };
   onChange = e => {
@@ -51,12 +52,33 @@ class App extends Component {
   handleViewSidebar = () => {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
   };
-  likeImgToggler = e => {
-    this.setState({
-      likeImg:
-        "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg",
-      likeCounter: this.state.likeCounter + 1
+  updateLikes = (card, updated) => {
+    console.log(card);
+    let cardChecker = this.state.trends.filter((trend, index) => {
+      return trend.id === card;
     });
+    console.log(cardChecker);
+    if (cardChecker.length > 0) {
+      if (!this.state.updated) {
+        this.setState((prevState, props) => {
+          return {
+            likeImg:
+              "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg",
+            likes: prevState.likes + 1,
+            updated: true
+          };
+        });
+      } else {
+        this.setState((prevState, props) => {
+          return {
+            likeImg:
+              "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
+            likes: prevState.likes - 1,
+            updated: false
+          };
+        });
+      }
+    }
   };
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });
@@ -80,32 +102,19 @@ class App extends Component {
       .catch(error => {
         this.setState({ error: error.errorMessage, loading: true });
       });
-    fetch(`${API_URL}/?all`)
-      .then(handleResponse)
-      .then(data => {
-        const searchTrends = data.data;
-        this.setState({
-          searchables: [...this.state.searchables, ...searchTrends]
-        });
-      })
-      .catch(error => {
-        this.setState({ error: error.errorMessage, loading: true });
-      });
   };
-
   componentDidMount() {
     this.trendsApi();
   }
   onPaginatedSearch = e => {
     e.preventDefault();
-    this.setState(prevState => ({
+    this.setState((prevState, props) => ({
       counter: prevState.counter + 1
     }));
     this.trendsApi();
   };
 
   render() {
-    console.log(this.state.searchables);
     return (
       <div className="App">
         {window.innerWidth < 769 ? (
@@ -160,8 +169,9 @@ class App extends Component {
                     cardsInfo={this.state.trends}
                     searchTrends={this.state.searchTrends}
                     likeImg={this.state.likeImg}
-                    likeCounter={this.state.likeCounter}
-                    likeImgToggler={this.likeImgToggler}
+                    likes={this.state.likes}
+                    updated={this.state.updated}
+                    updateLikes={this.updateLikes}
                     onChange={this.onChange}
                     onPaginatedSearch={this.onPaginatedSearch}
                   />
