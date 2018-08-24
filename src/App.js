@@ -61,21 +61,6 @@ class App extends Component {
         };
       });
     });
-    // if () {
-    //   if (!this.state.updated) {
-    //     this.setState((prevState, props) => {
-    //       return {
-    //
-    //       };
-    //     });
-    //   } else {
-    //     this.setState((prevState, props) => {
-    //       return {
-    //         likes: prevState.likes - 1
-    //       };
-    //     });
-    //   }
-    // }
   };
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });

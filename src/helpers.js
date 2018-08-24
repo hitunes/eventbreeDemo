@@ -15,13 +15,15 @@ export const cultureApi = page => {
     .then(data => {
       let culture = [];
       culture = data.data;
-      return culture.map((value, index) => {
-        return (
-          <SubMenu title="Culture">
-            <Menu.Item key={index}>{value.name}</Menu.Item>
-          </SubMenu>
-        );
-      });
+      console.log(
+        culture.map((value, index) => {
+          return (
+            <SubMenu title="Culture">
+              <Menu.Item key={index}>{value.name}</Menu.Item>
+            </SubMenu>
+          );
+        })
+      );
     });
 };
 export const categoryApi = page => {

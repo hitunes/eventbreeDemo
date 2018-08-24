@@ -173,6 +173,9 @@
         margin-right: 0;
         margin-bottom: 30px;
     }
+    .card-image {
+        width: 235px;
+    }
 }
 
 
@@ -188,6 +191,9 @@
         margin-right: 0;
         margin-bottom: 30px;
     }
+    .card-image {
+        width: 300px;
+    }
 }
 
 
@@ -202,6 +208,9 @@
     .card {
         margin-right: 0;
         margin-bottom: 30px;
+    }
+    .card-image {
+        width: 305px;
     }
 }
 
