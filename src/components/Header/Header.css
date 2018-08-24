@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    text-align: center
+    text-align: center;
+    align-items: center;
 }
 
 .nav__sidebar-btn {
@@ -33,10 +34,14 @@
     text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
 }
 
-.nav__links>span {
+.nav__links>span>a {
     font-size: 16px;
     color: #262a39;
     margin-right: 40px
+}
+
+.nav__links>span>a:hover {
+    opacity: 0.8;
 }
 
 .nav__links>button {
@@ -58,7 +63,7 @@
 @media screen and (max-width: 768px) {
     .globalpagetitle {
         font-size: 26px;
-        margin-top: 10px;
+        margin-top: 40px;
         font-weight: 600;
     }
     .frontpagetitle {
@@ -71,6 +76,13 @@
     }
     .nav__sidebar-btn {
         display: block
+    }
+    .navlinks__wrapper {
+        height: 40px;
+    }
+    .nav__logo>img {
+        height: 22px;
+        width: 111px
     }
 }
 

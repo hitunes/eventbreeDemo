@@ -28,20 +28,16 @@ import "antd/dist/antd.css";
 import "./App.css";
 
 class App extends Component {
+  page = 1;
   state = {
     sidebarOpen: false,
     trends: [],
     searchables: [],
     history: [],
-    counter: 1,
     loading: true,
     loadingMore: false,
-    likes: 124,
-    updated: false,
     error: "",
     searchTrends: "",
-    likeImg:
-      "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
     value: ""
   };
   onChange = e => {
@@ -52,44 +48,50 @@ class App extends Component {
   handleViewSidebar = () => {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
   };
-  updateLikes = (card, updated) => {
-    console.log(card);
-    let cardChecker = this.state.trends.filter((trend, index) => {
-      return trend.id === card;
-    });
-    console.log(cardChecker);
-    if (cardChecker.length > 0) {
-      if (!this.state.updated) {
-        this.setState((prevState, props) => {
-          return {
-            likeImg:
-              "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg",
-            likes: prevState.likes + 1,
-            updated: true
-          };
-        });
-      } else {
-        this.setState((prevState, props) => {
-          return {
-            likeImg:
-              "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg",
-            likes: prevState.likes - 1,
-            updated: false
-          };
-        });
+
+  updateLikes = cardId => {
+    let trendingCards = [...this.state.trends];
+    trendingCards.forEach(card => {
+      if (card.id === cardId && card.like === false) {
+        card.like = !card.like;
       }
-    }
+      this.setState((prevState, props) => {
+        return {
+          trends: trendingCards
+        };
+      });
+    });
+    // if () {
+    //   if (!this.state.updated) {
+    //     this.setState((prevState, props) => {
+    //       return {
+    //
+    //       };
+    //     });
+    //   } else {
+    //     this.setState((prevState, props) => {
+    //       return {
+    //         likes: prevState.likes - 1
+    //       };
+    //     });
+    //   }
+    // }
   };
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });
   };
 
-  trendsApi = () => {
+  trendsApi = page => {
     this.setState({ loadingMore: true });
-    fetch(`${API_URL}/?page=${this.state.counter}`)
+    fetch(`${API_URL}/?page=${page}`)
       .then(handleResponse)
       .then(data => {
         const trendsInfo = data.data;
+        const newTrends = trendsInfo.forEach(trend => {
+          if (trend.like === undefined) {
+            trend.like = trend.like ? true : false;
+          }
+        });
         this.setState({
           loading: false,
           loadingMore: false,
@@ -104,16 +106,13 @@ class App extends Component {
       });
   };
   componentDidMount() {
-    this.trendsApi();
+    this.trendsApi(this.page);
   }
   onPaginatedSearch = e => {
     e.preventDefault();
-    this.setState((prevState, props) => ({
-      counter: prevState.counter + 1
-    }));
-    this.trendsApi();
+    this.page += 1;
+    this.trendsApi(this.page);
   };
-
   render() {
     return (
       <div className="App">

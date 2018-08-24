@@ -48,9 +48,13 @@ class Card extends Component {
               {card.title}
             </div>
             <div className="card-title-btns">
-              <span onClick={() => updateLikes(card.id, updated)}>
+              <span onClick={() => updateLikes(card.id)}>
                 <img
-                  src={likeImg}
+                  src={
+                    card.like == true
+                      ? "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg"
+                      : "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg"
+                  }
                   alt="like"
                   width="20px"
                   height="20px"
@@ -72,7 +76,6 @@ class Card extends Component {
                   title="Share on..."
                   centered
                   visible={this.state.modal2Visible}
-                  onOk={() => this.setModal2Visible(false)}
                   onCancel={() => this.setModal2Visible(false)}
                   footer={null}
                 >

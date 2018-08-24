@@ -1,11 +1,56 @@
 import React from "react";
 import Plyr from "react-plyr";
+import { Button, Menu } from "antd";
 
 /**
  * Fetch response helper
  *
  * @param {object} response
  */
+
+const SubMenu = Menu.SubMenu;
+export const cultureApi = page => {
+  fetch(page)
+    .then(handleResponse)
+    .then(data => {
+      let culture = [];
+      culture = data.data;
+      return culture.map((value, index) => {
+        return (
+          <SubMenu title="Culture">
+            <Menu.Item key={index}>{value.name}</Menu.Item>
+          </SubMenu>
+        );
+      });
+    });
+};
+export const categoryApi = page => {
+  fetch(page)
+    .then(handleResponse)
+    .then(data => {
+      let category = [];
+      category = data.data;
+      return category.map((value, index) => {
+        return <Menu.Item key={index}>{value.name}</Menu.Item>;
+      });
+    });
+};
+export const eventApi = page => {
+  fetch(page)
+    .then(handleResponse)
+    .then(data => {
+      let events = [];
+      events = data.data;
+      return events.map((value, index) => {
+        return (
+          <SubMenu title="Events">
+            <Menu.Item key={index}>{value.name}</Menu.Item>
+          </SubMenu>
+        );
+      });
+    });
+};
+
 const data = {
   twitter: {
     shareUrl: "https://twitter.com/intent/tweet/",
@@ -56,7 +101,7 @@ const data = {
 export const shareOnTwitter = url => {
   let shareurl = `${data.twitter.shareUrl}?text=${
     data.twitter.text
-  }&url=${url}&hashtags=${data.twitter.hashtags}&via=${data.twitter.via}`;
+  }&url=${url}&hashtags=${data.twitter.hashtags}`;
   createPopup(shareurl);
 };
 export const shareOnPinterest = (url, media) => {
@@ -152,8 +197,11 @@ export const formatter = content => {
       case "quote":
         return formatBlockquote(value.content);
         break;
+      case "banner_with_caption":
+        return formatBanner(value.content);
+        break;
       default:
-        return <p>"Hello"</p>;
+        return <p />;
     }
   });
 };
@@ -216,7 +264,8 @@ function formatText(content) {
   });
 }
 function formatVideo(content) {
-  // let embedurl = content.embed_url.substring(17);
+  // let embedurl = content.html.substring(62, 82);
+  // let url = `"https://youtu.be/${embedurl}"`;
   return (
     <Plyr
       type="youtube" // or "vimeo"
@@ -233,16 +282,32 @@ function formatImg(content) {
     </div>
   );
 }
+function formatBanner(content) {
+  return (
+    <div className="advert-here">
+      <div className="advert-here-box">
+        <img src={content.image_banner.url} alt={content.image_banner.alt} />
+        <div className="advert__title">{content.title_of_banner[0].text}</div>
+        <div className="advert__description">{content.description[0].text}</div>
+        <a
+          href={content.button_link.url}
+          target="_blank"
+          className="advert__button_link"
+        >
+          <Button>{content.button_label[0].text}</Button>
+        </a>
+      </div>
+    </div>
+  );
+}
 function formatBlockquote(content) {
   return (
     <div className="blockquote">
-      <div>"</div>
-      <p className="blockquote__quote">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus
-        maxime eius odio rerum earum tempore elit. accusamus voluptates labore
-        dolorum eligendi.
-      </p>
-      <p className="blockquote__author">Itunu</p>
+      <div>
+        <img src={quotes} alt="" />
+      </div>
+      <p className="blockquote__quote">{content}</p>
+      {/* <p className="blockquote__author">{author}</p> */}
     </div>
   );
 }
@@ -273,7 +338,7 @@ export const webLeftSide =
 export const webRightSide =
   "https://static.eventbree.com/trends/images/svg/trend-design-right.svg";
 export const logoHeader =
-  "https://static.eventbree.com/trends/images/png/logo-header.png";
+  "https://static.eventbree.com/images/logos/full/eventbree-black-red.svg";
 
 // select dropdown menu
 export let Culture = [

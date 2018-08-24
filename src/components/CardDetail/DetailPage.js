@@ -92,14 +92,12 @@ export default class DetailPage extends Component {
     }
     return (
       <div className="detailpage__wrapper">
-        {/* <div className="advert-here">
-          <div className="advert-here-box">ADS</div>
-        </div> */}
         <Link to="/" className="detailpage__back-btn">
           <span>Back</span>
         </Link>
         <div className="card__detailpage__wrapper">
           <div className="detailpage__title">{card.title}</div>
+          <div className="detailpage__summary">{card.summary}</div>
           <div className="detailpage__slug-title">
             <span>{card.category.name}</span>
             <span>{card.culture.name}</span>
@@ -191,17 +189,6 @@ export default class DetailPage extends Component {
         </div>
         <div>
           <div>{formatter(card.content)}</div>
-          <div className="blockquote">
-            <div>
-              <img src={quotes} alt="" />
-            </div>
-            <p className="blockquote__quote">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus
-              maxime eius odio rerum earum tempore elit. accusamus voluptates
-              labore dolorum eligendi.
-            </p>
-            <p className="blockquote__author">Itunu</p>
-          </div>
         </div>
         <div className="card__similar-trend">
           <p className="card__similar-trend-title">Related Trends</p>

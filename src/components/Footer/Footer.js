@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Icon, Button } from "antd";
+import { socials, helps, terms } from "./../../config";
 import "./Footer.css";
+import { logoHeader } from "../../helpers";
 export default class Footer extends Component {
   render() {
     return (
@@ -10,51 +12,44 @@ export default class Footer extends Component {
             <div className="footer__head-wrapper">
               <div className="footer__logo">
                 <img
-                  src="https://static.eventbree.com/trends/images/png/logo-header.png"
+                  src={logoHeader}
                   alt="footer"
-                  width="106px"
-                  height="45px"
+                  width="146px"
+                  height="35px"
                 />
               </div>
               <div className="footer__links-right">Become a supply partner</div>
             </div>
             <span className="footer__connect-icons">
-              <span>
-                <Icon type="facebook" />
-              </span>
-              <span>
-                <Icon type="twitter" />
-              </span>
-              <span>
-                <Icon type="instagram" />
-              </span>
-              <span>
-                <Icon type="medium" />
-              </span>
-              <span>
-                <Icon type="wechat" />
-              </span>
-              <span>
-                <Icon type="youtube" />
-              </span>
-              <span>
-                <Icon type="linkedin" />
-              </span>
+              {socials.map((links, index) => (
+                <span key={index}>
+                  <a href={links.url} target="_blank">
+                    <Icon type={links.icon} />
+                  </a>
+                </span>
+              ))}
             </span>
-            <div className="footer__links">
-              <div className="footer__links-left">
-                <span>Helpdesk</span>
-                <span>Academy</span>
-                <span>Contact Us</span>
-              </div>
+            <div className="footer__links-left">
+              {helps.map((links, index) => (
+                <span key={index}>
+                  <a href={links.url} target="_blank">
+                    {links.title}
+                  </a>
+                </span>
+              ))}
             </div>
             <div className="footer__copyrights">
               <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
+              {terms.map((links, index) => (
+                <span key={index}>
+                  <a href={links.url} target="_blank">
+                    <span>{links.title}</span>
+                  </a>
+                </span>
+              ))}
             </div>
           </div>
         ) : (
@@ -73,31 +68,21 @@ export default class Footer extends Component {
               </div>
             </div>
             <div className="mobile-footer__links">
-              <span>Helpdesk</span>
-              <span>Academy</span>
-              <span>Contact Us</span>
+              {helps.map((links, index) => (
+                <span key={index}>
+                  <a href={links.url} target="_blank">
+                    {links.title}
+                  </a>
+                </span>
+              ))}
               <span className="footer__connect-icons">
-                <span>
-                  <Icon type="facebook" />
-                </span>
-                <span>
-                  <Icon type="twitter" />
-                </span>
-                <span>
-                  <Icon type="instagram" />
-                </span>
-                <span>
-                  <Icon type="medium" />
-                </span>
-                <span>
-                  <Icon type="wechat" />
-                </span>
-                <span>
-                  <Icon type="youtube" />
-                </span>
-                <span>
-                  <Icon type="linkedin" />
-                </span>
+                {socials.map((links, index) => (
+                  <span key={index}>
+                    <a href={links.url} target="_blank">
+                      <Icon type={links.icon} />
+                    </a>
+                  </span>
+                ))}
               </span>
             </div>
             <div className="mobilefooter__copyrights">
@@ -105,8 +90,13 @@ export default class Footer extends Component {
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
+              {terms.map((links, index) => (
+                <span key={index}>
+                  <a href={links.url} target="_blank">
+                    <span>{links.title}</span>
+                  </a>
+                </span>
+              ))}
             </div>
           </div>
         )}
