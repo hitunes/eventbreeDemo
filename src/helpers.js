@@ -1,58 +1,50 @@
 import React from "react";
 import Plyr from "react-plyr";
-import { Button, Menu } from "antd";
+import { Button, Menu, Icon } from "antd";
 
 /**
  * Fetch response helper
  *
  * @param {object} response
  */
-
 const SubMenu = Menu.SubMenu;
-export const cultureApi = page => {
-  fetch(page)
-    .then(handleResponse)
-    .then(data => {
-      let culture = [];
-      culture = data.data;
-      console.log(
-        culture.map((value, index) => {
-          return (
-            <SubMenu title="Culture">
-              <Menu.Item key={index}>{value.name}</Menu.Item>
-            </SubMenu>
-          );
-        })
-      );
-    });
+export const DropMenu = (name, array) => {
+  return (
+    <SubMenu title={name}>
+      {array.map((value, index) => (
+        <Menu.Item key={index}>
+          <a href={value.url}>{value.name}</a>
+        </Menu.Item>
+      ))}
+    </SubMenu>
+  );
 };
-export const categoryApi = page => {
-  fetch(page)
-    .then(handleResponse)
-    .then(data => {
-      let category = [];
-      category = data.data;
-      return category.map((value, index) => {
-        return <Menu.Item key={index}>{value.name}</Menu.Item>;
-      });
-    });
+export const FooterLinksTitleUrl = array => {
+  return (
+    <span>
+      {array.map((links, index) => (
+        <span key={index}>
+          <a href={links.url} target="_blank">
+            {links.title}
+          </a>
+        </span>
+      ))}
+    </span>
+  );
 };
-export const eventApi = page => {
-  fetch(page)
-    .then(handleResponse)
-    .then(data => {
-      let events = [];
-      events = data.data;
-      return events.map((value, index) => {
-        return (
-          <SubMenu title="Events">
-            <Menu.Item key={index}>{value.name}</Menu.Item>
-          </SubMenu>
-        );
-      });
-    });
+export const FooterLinksTitleIcon = array => {
+  return (
+    <span className="footer__connect-icons">
+      {array.map((links, index) => (
+        <span key={index}>
+          <a href={links.url} target="_blank">
+            <Icon type={links.icon} />
+          </a>
+        </span>
+      ))}
+    </span>
+  );
 };
-
 const data = {
   twitter: {
     shareUrl: "https://twitter.com/intent/tweet/",

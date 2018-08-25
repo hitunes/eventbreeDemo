@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Input, Icon, Menu, Dropdown } from "antd";
-import { handleResponse, categoryApi } from "../../helpers.js";
+import { handleResponse, categoryApi, DropMenu } from "../../helpers.js";
 import "./Search.css";
 import {
   Culture_API_URL,
@@ -9,7 +9,6 @@ import {
 } from "../../config.js";
 
 const Search = Input.Search;
-const SubMenu = Menu.SubMenu;
 export default class SearchInput extends Component {
   state = {
     category: [],
@@ -55,21 +54,9 @@ export default class SearchInput extends Component {
     let { category, culture, events } = this.state;
     const menu = (
       <Menu>
-        <SubMenu title="Events">
-          {events.map((value, index) => (
-            <Menu.Item key={index}>{value.name}</Menu.Item>
-          ))}
-        </SubMenu>
-        <SubMenu title="Category">
-          {category.map((value, index) => (
-            <Menu.Item key={index}>{value.name}</Menu.Item>
-          ))}
-        </SubMenu>
-        <SubMenu title="Culture">
-          {culture.map((value, index) => (
-            <Menu.Item key={index}>{value.name}</Menu.Item>
-          ))}
-        </SubMenu>
+        {DropMenu("Events", events)}
+        {DropMenu("Category", category)}
+        {DropMenu("Culture", culture)}
       </Menu>
     );
     const TrendsDropdown = () => {

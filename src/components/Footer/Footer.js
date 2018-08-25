@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Button } from "antd";
 import { socials, helps, terms } from "./../../config";
+import { FooterLinksTitleUrl, FooterLinksTitleIcon } from "./../../helpers";
 import "./Footer.css";
 import { logoHeader } from "../../helpers";
 export default class Footer extends Component {
@@ -20,36 +21,16 @@ export default class Footer extends Component {
               </div>
               <div className="footer__links-right">Become a supply partner</div>
             </div>
-            <span className="footer__connect-icons">
-              {socials.map((links, index) => (
-                <span key={index}>
-                  <a href={links.url} target="_blank">
-                    <Icon type={links.icon} />
-                  </a>
-                </span>
-              ))}
-            </span>
+            {FooterLinksTitleIcon(socials)}
             <div className="footer__links-left">
-              {helps.map((links, index) => (
-                <span key={index}>
-                  <a href={links.url} target="_blank">
-                    {links.title}
-                  </a>
-                </span>
-              ))}
+              {FooterLinksTitleUrl(helps)}
             </div>
             <div className="footer__copyrights">
               <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
-              {terms.map((links, index) => (
-                <span key={index}>
-                  <a href={links.url} target="_blank">
-                    <span>{links.title}</span>
-                  </a>
-                </span>
-              ))}
+              {FooterLinksTitleUrl(terms)}
             </div>
           </div>
         ) : (
@@ -68,35 +49,15 @@ export default class Footer extends Component {
               </div>
             </div>
             <div className="mobile-footer__links">
-              {helps.map((links, index) => (
-                <span key={index}>
-                  <a href={links.url} target="_blank">
-                    {links.title}
-                  </a>
-                </span>
-              ))}
-              <span className="footer__connect-icons">
-                {socials.map((links, index) => (
-                  <span key={index}>
-                    <a href={links.url} target="_blank">
-                      <Icon type={links.icon} />
-                    </a>
-                  </span>
-                ))}
-              </span>
+              {FooterLinksTitleUrl(helps)}
+              {FooterLinksTitleIcon(socials)}
             </div>
             <div className="mobilefooter__copyrights">
               <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
-              {terms.map((links, index) => (
-                <span key={index}>
-                  <a href={links.url} target="_blank">
-                    <span>{links.title}</span>
-                  </a>
-                </span>
-              ))}
+              {FooterLinksTitleUrl(terms)}
             </div>
           </div>
         )}

@@ -32,11 +32,10 @@ class App extends Component {
   state = {
     sidebarOpen: false,
     trends: [],
-    searchables: [],
-    history: [],
     loading: true,
     loadingMore: false,
     error: "",
+    likes: 123,
     searchTrends: "",
     value: ""
   };
