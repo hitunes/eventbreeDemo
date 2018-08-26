@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Icon, Button } from "antd";
 import { socials, helps, terms } from "./../../config";
 import { FooterLinksTitleUrl, FooterLinksTitleIcon } from "./../../helpers";
 import "./Footer.css";

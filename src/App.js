@@ -35,10 +35,10 @@ class App extends Component {
     loading: true,
     loadingMore: false,
     error: "",
-    likes: 123,
     searchTrends: "",
     value: ""
   };
+  // TODO: example FIXME:
   onChange = e => {
     this.state.value({
       value: e.target.value
@@ -53,42 +53,49 @@ class App extends Component {
     trendingCards.forEach(card => {
       if (card.id === cardId && card.like === false) {
         card.like = !card.like;
+        (async () => {
+          const rawResponse = await fetch(`${API_URL}/${cardId}/like`, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          });
+          const content = await rawResponse.json();
+          this.setState((prevState, props) => {
+            return {
+              trends: trendingCards
+            };
+          });
+        })();
       }
-      this.setState((prevState, props) => {
-        return {
-          trends: trendingCards
-        };
-      });
     });
   };
   handleSearch = e => {
     this.setState({ searchTrends: e.target.value });
   };
-
-  trendsApi = page => {
-    this.setState({ loadingMore: true });
-    fetch(`${API_URL}/?page=${page}`)
-      .then(handleResponse)
-      .then(data => {
-        const trendsInfo = data.data;
-        const newTrends = trendsInfo.forEach(trend => {
-          if (trend.like === undefined) {
-            trend.like = trend.like ? true : false;
-          }
-        });
-        this.setState({
-          loading: false,
-          loadingMore: false,
-          trends:
-            this.state.trends.length > 0
-              ? [...this.state.trends, ...trendsInfo]
-              : trendsInfo
-        });
-      })
-      .catch(error => {
-        this.setState({ error: error.errorMessage, loading: true });
+  async trendsApi(page) {
+    try {
+      let response = await fetch(`${API_URL}/?page=${page}`);
+      let responseJson = await response.json();
+      const trendsInfo = responseJson.data;
+      trendsInfo.forEach(trend => {
+        if (trend.like === undefined) {
+          trend.like = trend.like ? true : false;
+        }
       });
-  };
+      this.setState({
+        loading: false,
+        loadingMore: false,
+        trends:
+          this.state.trends.length > 0
+            ? [...this.state.trends, ...trendsInfo]
+            : trendsInfo
+      });
+    } catch (error) {
+      this.setState({ error: error.errorMessage, loading: true });
+    }
+  }
   componentDidMount() {
     this.trendsApi(this.page);
   }

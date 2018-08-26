@@ -15,12 +15,8 @@ class CardGroup extends Component {
       loadingMore,
       error,
       searchTrends,
-      likeImg,
-      likes,
       updateLikes,
       onChange,
-      updated,
-      selected,
       onPaginatedSearch
     } = this.props;
     if (loading) {
@@ -49,13 +45,9 @@ class CardGroup extends Component {
               <Card
                 card={value}
                 key={index}
-                likes={likes}
-                likeImg={likeImg}
                 updateLikes={updateLikes}
                 onChange={onChange}
                 value={value.id}
-                updated={updated}
-                selected={selected}
               />
             ))}
         </Masonry>

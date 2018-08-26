@@ -18,8 +18,7 @@ import {
   googleplusShare,
   pinterestShare,
   whatsappShare,
-  emailShare,
-  quotes
+  emailShare
 } from "../../helpers.js";
 import "./DetailPage.css";
 import Loader from "./Loader";

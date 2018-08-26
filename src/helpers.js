@@ -168,7 +168,6 @@ export const handleResponse = response => {
 
 // detailpage content build
 export const formatter = content => {
-  let that = this;
   return content.map((value, index) => {
     switch (value.type) {
       case "text":

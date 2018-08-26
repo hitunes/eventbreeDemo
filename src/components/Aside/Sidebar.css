@@ -10,7 +10,7 @@
     left: -73%;
     height: 100%;
     width: 73%;
-    transition: left .1s ease-in;
+    transition: 0.33s all ease;
     background-color: white;
     z-index: 16;
 }
@@ -45,26 +45,24 @@ li>a {
     color: #262a39;
 }
 
-.sidebar__overlay {
-    background-color: black;
+.sidebar__overlay,
+.sidebarOverlay {
     height: 100%;
     width: 100%;
-    opacity: 0.5;
+    transition: 0.33s all ease;
     z-index: 11;
     position: fixed;
-    right: 0;
     top: 0;
-    transition: left .1s ease-in;
+}
+
+.sidebar__overlay {
+    background-color: black;
+    opacity: 0.5;
+    right: 0;
 }
 
 .sidebarOverlay {
-    position: fixed;
-    top: 0;
     left: 0%;
-    height: 100%;
-    width: 100%;
-    transition: left .1s ease-in;
     background-color: white;
-    z-index: 11;
     display: none
 }

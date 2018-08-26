@@ -8,7 +8,7 @@ export const Sidebar = ({ isOpen, handleViewSidebar }) => {
   let sidebarOverlay = isOpen ? "sidebar__overlay" : "sidebarOverlay";
   return (
     <aside>
-      <div className="aside__logo-wrapper" className={sidebarClass}>
+      <div className={sidebarClass}>
         <div className="aside__header">
           <div className="aside__logo">
             <img src={logoHeader} alt="EVENTBREE" height="22px" width="111px" />

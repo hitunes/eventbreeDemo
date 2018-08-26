@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Input, Icon, Menu, Dropdown } from "antd";
-import { handleResponse, categoryApi, DropMenu } from "../../helpers.js";
+import { handleResponse, DropMenu } from "../../helpers.js";
 import "./Search.css";
 import {
   Culture_API_URL,

@@ -27,15 +27,7 @@ class Card extends Component {
     this.setState({ modal2Visible });
   }
   render() {
-    let {
-      card,
-      history,
-      likeImg,
-      updateLikes,
-      likes,
-      updated,
-      selected
-    } = this.props;
+    let { card, history, updateLikes } = this.props;
     return (
       <div className="card">
         <div className="card-image">
@@ -51,7 +43,7 @@ class Card extends Component {
               <span onClick={() => updateLikes(card.id)}>
                 <img
                   src={
-                    card.like == true
+                    card.like === true
                       ? "https://static.eventbree.com/trends/images/svg/heart-icon-red.svg"
                       : "https://static.eventbree.com/trends/images/svg/heart-icon-white.svg"
                   }
@@ -60,7 +52,7 @@ class Card extends Component {
                   height="20px"
                   style={{ marginRight: "8px" }}
                 />
-                {likes}
+                {card.stats.likes}
               </span>
               <span>
                 <div onClick={() => this.setModal2Visible(true)}>
