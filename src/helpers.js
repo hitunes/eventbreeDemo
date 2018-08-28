@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Plyr from "react-plyr";
 import { Button, Menu, Icon } from "antd";
 
@@ -8,17 +9,6 @@ import { Button, Menu, Icon } from "antd";
  * @param {object} response
  */
 const SubMenu = Menu.SubMenu;
-export const DropMenu = (name, array) => {
-  return (
-    <SubMenu title={name}>
-      {array.map((value, index) => (
-        <Menu.Item key={index}>
-          <a href={value.url}>{value.name}</a>
-        </Menu.Item>
-      ))}
-    </SubMenu>
-  );
-};
 export const FooterLinksTitleUrl = array => {
   return (
     <span>

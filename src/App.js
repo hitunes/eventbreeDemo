@@ -23,6 +23,7 @@ import CardGroup from "./components/Cards/CardGroup";
 import { Sidebar } from "./components/Aside/Sidebar";
 import SearchInput from "./components/Search/Search";
 import DetailPage from "./components/CardDetail/DetailPage";
+import Slug from "./components/SlugDetail/Slug";
 import Footer from "./components/Footer/Footer";
 import "antd/dist/antd.css";
 import "./App.css";
@@ -63,6 +64,7 @@ class App extends Component {
           });
           const content = await rawResponse.json();
           this.setState((prevState, props) => {
+            card.stats.likes++;
             return {
               trends: trendingCards
             };
@@ -75,6 +77,7 @@ class App extends Component {
     this.setState({ searchTrends: e.target.value });
   };
   async trendsApi(page) {
+    this.setState({ loadingMore: true });
     try {
       let response = await fetch(`${API_URL}/?page=${page}`);
       let responseJson = await response.json();
@@ -146,8 +149,11 @@ class App extends Component {
               path="/"
               render={() => (
                 <div className="maincontent__page-wrapper">
-                  <GlobalPageTitle />
-                  <FrontPageTitle />
+                  <GlobalPageTitle>Eventbree Trends...</GlobalPageTitle>
+                  <FrontPageTitle>
+                    Inspirations and ideas for your events based on popular
+                    trends
+                  </FrontPageTitle>
                   <SearchInput
                     searchTrends={this.state.searchTrends}
                     handleSearch={this.handleSearch}
@@ -169,6 +175,7 @@ class App extends Component {
               )}
             />
             <Route exact path="/:category/:id" component={DetailPage} />
+            <Route exact path="/:id" component={Slug} />
             <Footer />
           </div>
         </BrowserRouter>

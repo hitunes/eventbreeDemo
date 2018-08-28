@@ -32,13 +32,9 @@ export const NavLinks = ({ handleViewSidebar }) => {
     </div>
   );
 };
-export const GlobalPageTitle = () => {
-  return <div className="globalpagetitle">Eventbree Trends...</div>;
+export const GlobalPageTitle = ({ children }) => {
+  return <div className="globalpagetitle">{children}</div>;
 };
-export const FrontPageTitle = params => {
-  return (
-    <div className="frontpagetitle">
-      Inspirations and ideas for your events based on popular trends
-    </div>
-  );
+export const FrontPageTitle = ({ children }) => {
+  return <div className="frontpagetitle">{children}</div>;
 };

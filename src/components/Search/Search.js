@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input, Icon, Menu, Dropdown } from "antd";
-import { handleResponse, DropMenu } from "../../helpers.js";
+import { handleResponse } from "../../helpers.js";
+import { withRouter } from "react-router-dom";
 import "./Search.css";
 import {
   Culture_API_URL,
@@ -9,7 +10,8 @@ import {
 } from "../../config.js";
 
 const Search = Input.Search;
-export default class SearchInput extends Component {
+const SubMenu = Menu.SubMenu;
+class SearchInput extends Component {
   state = {
     category: [],
     events: [],
@@ -52,6 +54,20 @@ export default class SearchInput extends Component {
   }
   render() {
     let { category, culture, events } = this.state;
+    let { history } = this.props;
+    const DropMenu = (name, array) => {
+      return (
+        <SubMenu title={name}>
+          {array.map((value, index) => (
+            <Menu.Item key={index}>
+              <div onClick={() => history.push(`/${value.uid}`)}>
+                {value.name}
+              </div>
+            </Menu.Item>
+          ))}
+        </SubMenu>
+      );
+    };
     const menu = (
       <Menu>
         {DropMenu("Events", events)}
@@ -102,3 +118,4 @@ export default class SearchInput extends Component {
     );
   }
 }
+export default withRouter(SearchInput);
