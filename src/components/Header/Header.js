@@ -27,8 +27,8 @@ export const NavLinks = ({ handleViewSidebar }) => {
             </a>
           </span>
         ))}
-        <Button>Join partner network</Button>
       </div>
+      <Button>Join partner network</Button>
     </div>
   );
 };

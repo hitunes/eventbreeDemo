@@ -1,0 +1,100 @@
+.landing-page__title {
+    margin-bottom: 80px
+}
+
+.landing-page__download-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    margin-bottom: 803px;
+}
+
+.landing-page__download-iphone {
+    margin-right: 40px
+}
+
+.landing-page__download-iphone-image,
+.landing-page__download-android-image {
+    margin-right: 16px
+}
+
+.landing-page__download-iphone-text>span:nth-child(1),
+.landing-page__download-android-text>span:nth-child(1) {
+    font-size: 14px
+}
+
+.landing-page__download-iphone-text>span:nth-child(2),
+.landing-page__download-android-text>span:nth-child(2) {
+    font-size: 18px
+}
+
+.landing-page__download-iphone,
+.landing-page__download-android {
+    color: #262a39;
+    width: 200px;
+    height: 75px;
+    border-radius: 38px;
+    background-color: #ffffff;
+    border: solid 0.5px #3b87bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.landing-page__download-iphone-text,
+.landing-page__download-android-text {
+    display: flex;
+    flex-direction: column
+}
+
+.landing-page__phone,
+.landing-page__bg1,
+.landing-page__bg2 {
+    height: 0;
+}
+
+.landing-page__bg1>img {
+    width: 2084px;
+    z-index: 1;
+    position: absolute;
+    top: 152px;
+    right: -356px;
+}
+
+.landing-page__phone>img {
+    width: 317px;
+    height: 508px;
+    z-index: 3;
+    position: absolute;
+    top: 512px;
+    right: 520px;
+}
+
+.landing-page__bg2>img {
+    position: absolute;
+    top: 684px;
+    left: 33%;
+    z-index: 2;
+}
+
+.landing-page__bg3>img {
+    position: absolute;
+    top: 1000px;
+}
+
+.landing-page__features {
+    margin-bottom: 700px
+}
+
+.landing-page__features-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #262a39;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    margin-left: 69px;
+    z-index: 5;
+    position: relative;
+}

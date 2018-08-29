@@ -7,21 +7,6 @@ import "./Slug.css";
 import { GlobalPageTitle, FrontPageTitle } from "../Header/Header";
 
 export default class DetailPage extends Component {
-  // state = {
-  //   slug: {
-  //     id: null,
-  //     category: {},
-  //     culture: {},
-  //     event_type: {},
-  //     content: [],
-  //     modal2Visible: false
-  //   },
-  //   loading: true,
-  //   similar: [],
-  //   meta: [],
-  //   links: [],
-  //   error: ""
-  // };
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
   }

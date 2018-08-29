@@ -31,7 +31,7 @@ class Card extends Component {
     return (
       <div className="card">
         <div className="card-image">
-          <img src={card.image} alt="check" />
+          <img src={card.image.url} alt="check" />
           <div className="card-details">
             <div
               className="card-title"

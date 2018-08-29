@@ -27,6 +27,7 @@ import Slug from "./components/SlugDetail/Slug";
 import Footer from "./components/Footer/Footer";
 import "antd/dist/antd.css";
 import "./App.css";
+import LandingPage from "./components/Landing/Landing";
 
 class App extends Component {
   page = 1;
@@ -144,9 +145,10 @@ class App extends Component {
               isOpen={this.state.sidebarOpen}
               handleViewSidebar={this.handleViewSidebar}
             />
+            <Route exact path="/" component={LandingPage} />
             <Route
               exact
-              path="/"
+              path="/trends"
               render={() => (
                 <div className="maincontent__page-wrapper">
                   <GlobalPageTitle>Eventbree Trends...</GlobalPageTitle>
