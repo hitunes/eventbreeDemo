@@ -22,13 +22,11 @@ export const NavLinks = ({ handleViewSidebar }) => {
       <div className="nav__links">
         {nav_links.map((links, index) => (
           <span key={index}>
-            <a href={links.url} target="_blank">
-              {links.title}
-            </a>
+            <Link to={links.url}>{links.title}</Link>
           </span>
         ))}
       </div>
-      <Button>Join partner network</Button>
+      <Button className="nav__button">Join partner network</Button>
     </div>
   );
 };

@@ -37,7 +37,7 @@ export default class LandingPage extends Component {
           <img src="images/FirstRectangle.png" alt="bg1" />
         </div>
         <div className="landing-page__phone">
-          <img src="images/5.png" alt="phone" />
+          <img src="images/mobileIos.png" alt="phone" />
         </div>
         <div className="landing-page__bg2">
           <img src="images/Middle.png" alt="bg2" />

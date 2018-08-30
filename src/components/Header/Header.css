@@ -44,16 +44,16 @@
     opacity: 0.8;
 }
 
-.nav__links>button {
-    border-radius: 8px;
-    background-color: #3b87bc;
-    color: white;
-    padding: 10px 20px;
-    height: 40px;
+.nav__button {
+    border-radius: 8px !important;
+    border: solid 2px #e5303e !important;
+    color: #e5303e !important;
+    padding: 10px 20px !important;
+    height: 40px !important;
 }
 
-.nav__links>button:active,
-.nav__links>button:focus {
+.nav__button:active,
+.nav__button:focus {
     border: white;
 }
 
@@ -71,8 +71,9 @@
         margin-top: 8px;
         font-size: 12px;
     }
-    .nav__links {
-        display: none
+    .nav__links,
+    .nav__button {
+        display: none !important
     }
     .nav__sidebar-btn {
         display: block

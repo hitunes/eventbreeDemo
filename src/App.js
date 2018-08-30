@@ -28,6 +28,7 @@ import Footer from "./components/Footer/Footer";
 import "antd/dist/antd.css";
 import "./App.css";
 import LandingPage from "./components/Landing/Landing";
+import Blog from "./components/Blog/Blog";
 
 class App extends Component {
   page = 1;
@@ -148,6 +149,16 @@ class App extends Component {
             <Route exact path="/" component={LandingPage} />
             <Route
               exact
+              path="/blog"
+              render={() => (
+                <Blog
+                  loadingMore={this.state.loadingMore}
+                  onPaginatedSearch={this.onPaginatedSearch}
+                />
+              )}
+            />
+            <Route
+              exact
               path="/trends"
               render={() => (
                 <div className="maincontent__page-wrapper">
@@ -177,7 +188,7 @@ class App extends Component {
               )}
             />
             <Route exact path="/:category/:id" component={DetailPage} />
-            <Route exact path="/:id" component={Slug} />
+            {/* <Route exact path="/:#/:id" component={Slug} /> */}
             <Footer />
           </div>
         </BrowserRouter>

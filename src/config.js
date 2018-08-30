@@ -62,22 +62,24 @@ export const terms = [
   }
 ];
 export const nav_links = [
-  {
-    url: "#",
-    title: "Marketplace"
-  },
-  {
-    url: "#",
-    title: "Trends"
-  },
-  {
-    url: "#",
-    title: "TV"
-  }
+  { url: "/tv", title: "TV" },
+  { url: "/", title: "Home" },
+  { url: "/blog", title: "Blog" },
+  { url: "/trends", title: "Trends" },
+  { url: "/marketplace", title: "Marketplace" }
+];
+export const blog_links = [
+  { url: "#", title: "Latest" },
+  { url: "#", title: "Event tips" },
+  { url: "#", title: "Real events" },
+  { url: "#", title: "Supplier insight" },
+  { url: "#", title: "Videos" }
 ];
 export const aside__navlinks = [
-  { url: "#", title: "Marketplace" },
-  { url: "#", title: "Trends" },
-  { url: "#", title: "TV" },
-  { url: "#", title: "Join partner network" }
+  { url: "/", title: "Home" },
+  { url: "/tv", title: "TV" },
+  { url: "/blog", title: "Blog" },
+  { url: "/trends", title: "Trends" },
+  { url: "/market", title: "Market Place" },
+  { url: "/network", title: "Join partner network" }
 ];

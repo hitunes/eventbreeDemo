@@ -1,5 +1,6 @@
 import React from "react";
 import { logoHeader } from "../../helpers.js";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import { aside__navlinks } from "../../config.js";
 
@@ -20,9 +21,7 @@ export const Sidebar = ({ isOpen, handleViewSidebar }) => {
         <ul className="sidebar__ul">
           {aside__navlinks.map((link, index) => (
             <li key={index}>
-              <a href={link.url} target="_blank">
-                {link.title}
-              </a>
+              <Link to={link.url}>{link.title}</Link>
             </li>
           ))}
         </ul>

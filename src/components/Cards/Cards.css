@@ -102,7 +102,7 @@
     width: 121px;
     height: 32px;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: #e5303e;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     display: flex;
     justify-content: center;
@@ -110,7 +110,7 @@
     margin: 45px auto;
     font-size: 10px;
     font-weight: 600;
-    color: #3b87bc;
+    color: #ffffff;
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-duration: 0.1s;
