@@ -21,9 +21,10 @@ class SearchInput extends Component {
     fetch(Culture_API_URL)
       .then(handleResponse)
       .then(data => {
-        const cultureJson = data.data;
+        const culture = data.data;
+        const cultureType = data.meta.classification;
         this.setState({
-          culture: cultureJson
+          culture: culture
         });
       });
   };
@@ -32,6 +33,8 @@ class SearchInput extends Component {
       .then(handleResponse)
       .then(data => {
         const category = data.data;
+        const categoryType = data.meta.classification;
+        console.log(category);
         this.setState({
           category: category
         });
@@ -42,6 +45,8 @@ class SearchInput extends Component {
       .then(handleResponse)
       .then(data => {
         const event = data.data;
+        const eventType = data.meta.classification;
+        console.log(eventType);
         this.setState({
           events: event
         });
@@ -60,7 +65,7 @@ class SearchInput extends Component {
         <SubMenu title={name}>
           {array.map((value, index) => (
             <Menu.Item key={index}>
-              <div onClick={() => history.push(`/${value.uid}`)}>
+              <div onClick={() => history.push(`/${culture}${value.uid}`)}>
                 {value.name}
               </div>
             </Menu.Item>

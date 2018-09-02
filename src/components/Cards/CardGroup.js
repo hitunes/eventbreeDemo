@@ -6,7 +6,9 @@ import Loading from "../Loading";
 // import { connect } from "react-redux";
 // import { fetchTrends } from "../../actions/trendActions";
 import "./Cards.css";
-
+var masonryOptions = {
+  transitionDuration: 0
+};
 class CardGroup extends Component {
   render() {
     let {

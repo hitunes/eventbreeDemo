@@ -195,7 +195,7 @@ export default class DetailPage extends Component {
             {similar.map((value, index) => (
               <div className="card__similar-image" key={index} style={{}}>
                 <a href={value.share.url}>
-                  <img src={value.image} alt="similar-trends" />
+                  <img src={value.image.url} alt="similar-trends" />
                 </a>
                 <div>{value.title}</div>
               </div>
