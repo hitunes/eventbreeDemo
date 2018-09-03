@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import Plyr from "react-plyr";
 import { Button, Menu, Icon } from "antd";
 
@@ -8,7 +7,6 @@ import { Button, Menu, Icon } from "antd";
  *
  * @param {object} response
  */
-const SubMenu = Menu.SubMenu;
 export const FooterLinksTitleUrl = array => {
   return (
     <span>

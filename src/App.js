@@ -3,17 +3,11 @@ import { BrowserRouter, Route } from "react-router-dom";
 //api
 import { API_URL } from "./config";
 import {
-  handleResponse,
   mobileLeftSide,
   mobileRightSide,
   webLeftSide,
   webRightSide
 } from "./helpers.js";
-//api
-//redux
-// import { Provider } from "react-redux";
-// import store from "./store";
-//redux
 import {
   FrontPageTitle,
   GlobalPageTitle,
@@ -57,14 +51,13 @@ class App extends Component {
       if (card.id === cardId && card.like === false) {
         card.like = !card.like;
         (async () => {
-          const rawResponse = await fetch(`${API_URL}/${cardId}/like`, {
+          await fetch(`${API_URL}/${cardId}/like`, {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json"
             }
           });
-          const content = await rawResponse.json();
           this.setState((prevState, props) => {
             card.stats.likes++;
             return {
@@ -188,7 +181,7 @@ class App extends Component {
               )}
             />
             <Route exact path="/:category/:id" component={DetailPage} />
-            {/* <Route exact path="/:#/:id" component={Slug} /> */}
+            <Route exact path="/:classification/:id/:uid" component={Slug} />
             <Footer />
           </div>
         </BrowserRouter>
@@ -198,5 +191,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Provider store={store}> </Provider>;

@@ -1,0 +1,68 @@
+.slugpage__title {
+    text-transform: capitalize;
+    margin-left: 8px
+}
+
+.slugpage__container {
+    left: 9%
+}
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .slugpage__container {
+        left: 8%
+    }
+    .card-image {
+        width: 265px;
+    }
+}
+
+
+/* samsung */
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .slugpage__container {
+        left: 8%
+    }
+    .card-image {
+        width: 305px;
+    }
+}
+
+
+/* iphone 6 */
+
+@media screen and (min-width: 375px)and (max-width: 410px) {
+    .slugpage__container {
+        left: 8%
+    }
+    .card-image {
+        width: 315px;
+    }
+}
+
+@media screen and (min-width: 411px) and (max-width: 763px) {
+    .slugpage__container {
+        left: 7%
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .slugpage__container {
+        left: 7%
+    }
+    .card-image {
+        width: 315px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .slugpage__container {
+        left: 12%
+    }
+    .card-image {
+        width: 365px;
+    }
+}

@@ -15,7 +15,10 @@ class SearchInput extends Component {
   state = {
     category: [],
     events: [],
-    culture: []
+    culture: [],
+    cultureType: {},
+    categoryType: {},
+    eventType: {}
   };
   cultureApi = () => {
     fetch(Culture_API_URL)
@@ -23,9 +26,7 @@ class SearchInput extends Component {
       .then(data => {
         const culture = data.data;
         const cultureType = data.meta.classification;
-        this.setState({
-          culture: culture
-        });
+        this.setState({ culture: culture, cultureType: cultureType });
       });
   };
   categoryApi = () => {
@@ -34,10 +35,7 @@ class SearchInput extends Component {
       .then(data => {
         const category = data.data;
         const categoryType = data.meta.classification;
-        console.log(category);
-        this.setState({
-          category: category
-        });
+        this.setState({ category: category, categoryType: categoryType });
       });
   };
   eventApi = () => {
@@ -46,10 +44,7 @@ class SearchInput extends Component {
       .then(data => {
         const event = data.data;
         const eventType = data.meta.classification;
-        console.log(eventType);
-        this.setState({
-          events: event
-        });
+        this.setState({ events: event, eventType: eventType });
       });
   };
   componentDidMount() {
@@ -58,14 +53,25 @@ class SearchInput extends Component {
     this.cultureApi();
   }
   render() {
-    let { category, culture, events } = this.state;
+    let {
+      category,
+      culture,
+      events,
+      eventType,
+      cultureType,
+      categoryType
+    } = this.state;
     let { history } = this.props;
-    const DropMenu = (name, array) => {
+    const DropMenu = (name, array, classification) => {
       return (
         <SubMenu title={name}>
           {array.map((value, index) => (
             <Menu.Item key={index}>
-              <div onClick={() => history.push(`/${culture}${value.uid}`)}>
+              <div
+                onClick={() =>
+                  history.push(`/${classification}/${value.id}/${value.uid}`)
+                }
+              >
                 {value.name}
               </div>
             </Menu.Item>
@@ -75,9 +81,9 @@ class SearchInput extends Component {
     };
     const menu = (
       <Menu>
-        {DropMenu("Events", events)}
-        {DropMenu("Category", category)}
-        {DropMenu("Culture", culture)}
+        {DropMenu("Events", events, eventType)}
+        {DropMenu("Category", category, categoryType)}
+        {DropMenu("Culture", culture, cultureType)}
       </Menu>
     );
     const TrendsDropdown = () => {

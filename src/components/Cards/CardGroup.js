@@ -3,12 +3,7 @@ import Masonry from "react-masonry-component";
 import { Spin } from "antd";
 import Card from "./Card";
 import Loading from "../Loading";
-// import { connect } from "react-redux";
-// import { fetchTrends } from "../../actions/trendActions";
 import "./Cards.css";
-var masonryOptions = {
-  transitionDuration: 0
-};
 class CardGroup extends Component {
   render() {
     let {
@@ -61,7 +56,3 @@ class CardGroup extends Component {
   }
 }
 export default CardGroup;
-// export default connect(
-//   null,
-//   { fetchTrends }
-// )(CardGroup);

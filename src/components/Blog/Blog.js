@@ -3,7 +3,6 @@ import { blog_links } from "../../config.js";
 import { Card, Spin } from "antd";
 import "./Blog.css";
 
-const { Meta } = Card;
 const cardDetails = [
   {
     img: "images/1.jpg",
@@ -107,7 +106,7 @@ export default class Blog extends Component {
         <div className="blog__jumbotron">
           <img
             className="blog__jumbotron-bg"
-            src="images/jumbo.jpg"
+            src="images/jumbotron.jpg"
             alt="jumbotron"
           />
           <div className="blog__jumbotron-text-wrapper">
@@ -127,7 +126,7 @@ export default class Blog extends Component {
               key={index}
               className="blog__card"
               hoverable
-              cover={<img alt="example" src={card.img} height="269px" />}
+              cover={<img alt="blog-card" src={card.img} height="269px" />}
             >
               <div className="blog__card-author">{card.author}</div>
               <div className="blog__card-title">{card.title}</div>
