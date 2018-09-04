@@ -1,0 +1,37 @@
+.blog__body {
+    padding-left: 111px;
+    font-size: 18px;
+    width: 888px;
+    color: #262a39;
+}
+
+.blog__body-share-btn {
+    margin-bottom: 40px;
+    color: #3b87bc;
+    cursor: pointer;
+}
+
+.blog__body-title {
+    line-height: 40px;
+    margin-bottom: 120px;
+}
+
+.blog__body-rating {
+    display: flex;
+    margin-bottom: 80px
+}
+
+.blog__body-rating-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2;
+    color: #262a39;
+}
+
+.blog__body-rating>div {
+    margin-right: 80px
+}
+
+.blog__body-rating>div>span {
+    color: #3b87bc;
+}

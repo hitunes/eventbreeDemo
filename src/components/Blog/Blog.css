@@ -6,7 +6,9 @@
 .blog__links {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 80px
+    margin-bottom: 80px;
+    align-items: center;
+    margin-top: 80px
 }
 
 .blog__links-tags {
@@ -23,7 +25,8 @@
     height: 497px;
     width: 100%;
     position: relative;
-    margin-bottom: 80px
+    margin-bottom: 32px;
+    border-radius: 10px;
 }
 
 .blog__jumbotron:after {
@@ -37,6 +40,7 @@
     height: 100%;
     background: #000;
     opacity: 0.5;
+    border-radius: 10px;
 }
 
 .blog__jumbotron-bg {
@@ -72,7 +76,8 @@
 .blog__card-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
+    margin-top: 48px
 }
 
 .blog__card {
@@ -100,6 +105,24 @@
 .blog__card-details {
     font-size: 14px;
     color: #262a39;
+}
+
+.search {
+    margin-right: 8px !important;
+    width: 1050px !important;
+    height: 56px !important;
+    position: relative;
+    top: -120px;
+    left: 120%;
+    height: 100%;
+    width: 100%;
+    transition: 0.33s all ease;
+    background-color: white;
+    z-index: 16;
+}
+
+.search.open {
+    left: 50px;
 }
 
 @media screen and (max-width: 768px) {

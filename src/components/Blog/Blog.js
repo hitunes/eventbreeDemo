@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { blog_links } from "../../config.js";
-import { Card, Spin } from "antd";
+import { Card, Spin, Icon, Input } from "antd";
 import "./Blog.css";
+
+const Search = Input.Search;
 
 const cardDetails = [
   {
@@ -89,19 +91,61 @@ const cardDetails = [
       "The digital age is hitting the pet care industry. In this article we take a look at the features that can help you build a trustworthy on-demand dog walking platform"
   }
 ];
+export const BlogLinks = ({ viewSearch }) => {
+  return (
+    <div className="blog__links">
+      {blog_links.map((links, index) => (
+        <span key={index} onClick={this.onChange}>
+          <a className="blog__links-tags" href={links.url}>
+            {links.title}
+          </a>
+        </span>
+      ))}
+      <Icon type="search" onClick={viewSearch} />
+    </div>
+  );
+};
+const BlogSearch = ({ searchBlog, handleSearch, isOpen }) => {
+  let searchOpen = isOpen ? "search open" : "search";
+  return (
+    <Search
+      className={searchOpen}
+      value={searchBlog}
+      prefix={
+        <Icon
+          type="search"
+          style={{
+            color: "rgba(0,0,0,.25)",
+            fontSize: "18px"
+          }}
+        />
+      }
+      placeholder="Search for Blog"
+      onChange={handleSearch}
+      onSearch={value => console.log(value)}
+    />
+  );
+};
+
 export default class Blog extends Component {
   render() {
-    let { loadingMore, onPaginatedSearch } = this.props;
+    let {
+      loadingMore,
+      onPaginatedSearch,
+      viewSearch,
+      searchBlog,
+      handleSearch,
+      isOpen
+    } = this.props;
     return (
       <div className="blog__wrapper">
-        <div className="blog__links">
-          {blog_links.map((links, index) => (
-            <span key={index} onClick={this.onChange}>
-              <a className="blog__links-tags" href={links.url}>
-                {links.title}
-              </a>
-            </span>
-          ))}
+        <div>
+          <BlogLinks viewSearch={viewSearch} />
+          <BlogSearch
+            searchBlog={searchBlog}
+            handleSearch={handleSearch}
+            isOpen={isOpen}
+          />
         </div>
         <div className="blog__jumbotron">
           <img

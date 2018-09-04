@@ -23,11 +23,13 @@ import "antd/dist/antd.css";
 import "./App.css";
 import LandingPage from "./components/Landing/Landing";
 import Blog from "./components/Blog/Blog";
+import BlogDetail from "./components/Blog/BlogDetail";
 
 class App extends Component {
   page = 1;
   state = {
     sidebarOpen: false,
+    searchOpen: false,
     trends: [],
     loading: true,
     loadingMore: false,
@@ -43,6 +45,10 @@ class App extends Component {
   };
   handleViewSidebar = () => {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
+  };
+  viewSearch = () => {
+    this.setState({ searchOpen: !this.state.searchOpen });
+    console.log("clicked");
   };
 
   updateLikes = cardId => {
@@ -140,16 +146,29 @@ class App extends Component {
               handleViewSidebar={this.handleViewSidebar}
             />
             <Route exact path="/" component={LandingPage} />
-            <Route
-              exact
-              path="/blog"
-              render={() => (
-                <Blog
-                  loadingMore={this.state.loadingMore}
-                  onPaginatedSearch={this.onPaginatedSearch}
-                />
-              )}
-            />
+            <div>
+              <Route
+                exact
+                path="/blog"
+                render={() => (
+                  <Blog
+                    isOpen={this.state.searchOpen}
+                    loadingMore={this.state.loadingMore}
+                    onPaginatedSearch={this.onPaginatedSearch}
+                    viewSearch={this.viewSearch}
+                    searchBlog={this.state.searchTrends}
+                    handleSearch={this.handleSearch}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/blog-detail"
+                render={() => (
+                  <BlogDetail loadingMore={this.state.loadingMore} />
+                )}
+              />
+            </div>
             <Route
               exact
               path="/trends"

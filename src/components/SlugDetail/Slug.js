@@ -48,7 +48,6 @@ export default class Slug extends Component {
     if (this.props.location.pathname !== nextProps.location.pathname) {
       // Get id from new url params
       const slugId = this.props.match.params.id;
-      const slugUid = this.props.match.params.uid;
       const slugCategory = this.props.match.params.classification;
       // Fetch slug
       this.fetchslug(slugId, slugCategory);
