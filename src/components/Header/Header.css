@@ -34,14 +34,24 @@
     text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
 }
 
-.nav__links>span>a {
-    font-size: 16px;
-    color: #262a39;
-    margin-right: 40px
+.nav__links {
+    display: flex
 }
 
-.nav__links>span>a:hover {
-    opacity: 0.8;
+.nav__links>div>a {
+    padding-bottom: 14px;
+    text-decoration: inherit;
+    font-size: 16px;
+    color: #262a39;
+    margin-right: 40px;
+    width: 42px;
+}
+
+.nav__links>div>a:hover,
+.nav__links>div>a::selection,
+.nav__links>div>a:active {
+    border-radius: 3px;
+    border-bottom: 3px solid #e5303e;
 }
 
 .nav__button {

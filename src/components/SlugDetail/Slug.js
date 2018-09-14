@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { API_URL } from "../../config";
 import Masonry from "react-masonry-component";
-import { withRouter } from "react-router-dom";
 import { Modal } from "antd";
-import { Link } from "react-router-dom";
-import Loading from "../Loading";
+import { connect } from "react-redux";
+import { fetchClass } from "../../store/actions/classificationsActions";
+import { updateClassLikes } from "../../store/actions/classificationsActions";
 import {
-  handleResponse,
   shareOnTwitter,
   shareOnPinterest,
   shareOnFacebook,
@@ -24,21 +22,18 @@ import {
 } from "../../helpers.js";
 import "./Slug.css";
 import { GlobalPageTitle, FrontPageTitle } from "../Header/Header";
-
-export default class Slug extends Component {
+class Slug extends Component {
   state = {
-    loading: false,
-    slug: [],
-    meta: [],
-    links: {},
-    length: 0,
     slugTitle: ""
+  };
+  updateLikes = cardId => {
+    this.props.updateClassLikes(cardId);
   };
   componentDidMount() {
     const slugId = this.props.match.params.id;
     const slugCategory = this.props.match.params.classification;
     const slugUid = this.props.match.params.uid;
-    this.fetchslug(slugId, slugCategory);
+    this.props.fetchClass(slugCategory, slugId);
     window.scrollTo(0, 0);
     this.setState({
       slugTitle: slugUid
@@ -46,42 +41,15 @@ export default class Slug extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {
-      // Get id from new url params
       const slugId = this.props.match.params.id;
       const slugCategory = this.props.match.params.classification;
-      // Fetch slug
-      this.fetchslug(slugId, slugCategory);
+      this.props.fetchClass(slugCategory, slugId);
     }
   }
 
-  fetchslug(slugId, slugCategory) {
-    fetch(`${API_URL}/${slugCategory}/${slugId}`)
-      .then(handleResponse)
-      .then(slug => {
-        console.log(slug);
-        const slugs = slug.data;
-        const meta = slug.meta;
-        const links = slug.links;
-        const length = slug.data.length;
-        this.setState({
-          loading: false,
-          slug: slugs,
-          length: length,
-          meta: meta,
-          links: links
-        });
-      })
-      .catch(error => {
-        this.setState({
-          error: error.errorMessage,
-          loading: true
-        });
-      });
-  }
-
   render() {
-    let { history, updateLikes } = this.props;
-    let { slug, loading, length, slugTitle } = this.state;
+    let { history, classifications } = this.props;
+    let { slugTitle } = this.state;
     return (
       <div className="slugpage__wrapper">
         <GlobalPageTitle>
@@ -89,11 +57,11 @@ export default class Slug extends Component {
           <span className="slugpage__title">{slugTitle}</span>
         </GlobalPageTitle>
         <FrontPageTitle>
-          we have {length} trends for
+          we have {classifications.slug.length} trends for
           <span className="slugpage__title">{slugTitle}</span>
         </FrontPageTitle>
         <Masonry className={"slugpage__container"} key={new Date().getTime()}>
-          {slug.map((card, index) => (
+          {classifications.slug.map((card, index) => (
             <div className="card">
               <div className="card-image">
                 <img src={card.image.url} alt="check" />
@@ -107,7 +75,7 @@ export default class Slug extends Component {
                     {card.title}
                   </div>
                   <div className="card-title-btns">
-                    <span onClick={() => updateLikes(card.id)}>
+                    <span onClick={() => this.updateLikes(card.id)}>
                       <img
                         src={
                           card.like === true
@@ -226,3 +194,10 @@ export default class Slug extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  classifications: state.classifications.allClassifications
+});
+export default connect(
+  mapStateToProps,
+  { fetchClass, updateClassLikes }
+)(Slug);

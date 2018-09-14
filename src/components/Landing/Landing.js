@@ -15,18 +15,18 @@ export default class LandingPage extends Component {
         </div>
         <div className="landing-page__download-btn">
           <Button className="landing-page__download-iphone">
-            <span className="landing-page__download-iphone-image">
+            <div className="landing-page__download-iphone-image">
               <img src="images/apple-logo.png" alt="" />
-            </span>
+            </div>
             <div className="landing-page__download-iphone-text">
               <span>Download on the</span>
               <span>App Store</span>
             </div>
           </Button>
           <Button className="landing-page__download-android">
-            <span className="landing-page__download-android-image">
+            <div className="landing-page__download-android-image">
               <img src="images/google-play.png" alt="" />
-            </span>
+            </div>
             <div className="landing-page__download-android-text">
               <span>Get it on</span>
               <span>Google Play</span>

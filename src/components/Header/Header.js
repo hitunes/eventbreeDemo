@@ -2,13 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { logoHeader } from "../../helpers.js";
+import { connect } from "react-redux";
+import { toggleSidebar } from "../../store/actions/sidebarActions";
+import store from "../../store";
 import "./Header.css";
 import { nav_links } from "../../config.js";
 
-export const NavLinks = ({ handleViewSidebar }) => {
+function handleSidebar() {
+  store.dispatch(toggleSidebar());
+}
+
+const NavLinks = () => {
   return (
     <div className="navlinks__wrapper">
-      <div className="nav__sidebar-btn" onClick={handleViewSidebar}>
+      <div className="nav__sidebar-btn" onClick={() => handleSidebar()}>
         <img src="images/hamburger-menu.png" alt="ham" />
       </div>
       <Link to="/" className="nav__logo">
@@ -21,9 +28,9 @@ export const NavLinks = ({ handleViewSidebar }) => {
       </Link>
       <div className="nav__links">
         {nav_links.map((links, index) => (
-          <span key={index}>
+          <div key={index}>
             <Link to={links.url}>{links.title}</Link>
-          </span>
+          </div>
         ))}
       </div>
       <Button className="nav__button">Join partner network</Button>
@@ -36,3 +43,11 @@ export const GlobalPageTitle = ({ children }) => {
 export const FrontPageTitle = ({ children }) => {
   return <div className="frontpagetitle">{children}</div>;
 };
+
+const mapStateToProps = state => ({
+  sidebar: state.sidebar.sidebarOpen
+});
+export default connect(
+  mapStateToProps,
+  { toggleSidebar }
+)(NavLinks);

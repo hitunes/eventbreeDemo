@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { API_URL } from "../../config";
 import { Modal } from "antd";
 import { Link } from "react-router-dom";
 import {
-  handleResponse,
   formatter,
   shareOnTwitter,
   shareOnPinterest,
@@ -22,67 +20,45 @@ import {
 } from "../../helpers.js";
 import "./DetailPage.css";
 import Loader from "./Loader";
+import { connect } from "react-redux";
+import { fetchTrend } from "../../store/actions/trendActions";
+import store from "../../store";
+import _filter from "lodash/filter";
+import _isEmpty from "lodash/isEmpty";
 
-export default class DetailPage extends Component {
+class DetailPage extends Component {
   state = {
-    card: {
-      id: null,
-      category: {},
-      culture: {},
-      event_type: {},
-      content: [],
-      modal2Visible: false
-    },
-    loading: true,
-    similar: [],
-    meta: [],
-    links: [],
-    error: ""
+    modal2Visible: false
   };
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
   }
   componentDidMount() {
-    const cardId = this.props.match.params.id;
-    this.fetchCard(cardId);
+    const slug = this.props.match.params.id;
+    if (_isEmpty(store.getState().trends.allTrends.items)) {
+      setTimeout(() => {
+        this.fetIt(slug);
+      }, 3000);
+    } else {
+      this.fetIt(slug);
+    }
     window.scrollTo(0, 0);
   }
-  componentWillReceiveProps(nextProps) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      // Get id from new url params
-      const cardId = this.props.match.params.id;
-      // Fetch card
-      this.fetchCard(cardId);
-    }
-  }
 
-  fetchCard(cardId) {
-    fetch(`${API_URL}/${cardId}`)
-      .then(handleResponse)
-      .then(card => {
-        const cards = card.data;
-        const similar = card.similar.data;
-        const meta = card.meta;
-        const links = card.links;
-        this.setState({
-          loading: false,
-          card: cards,
-          similar: similar,
-          meta: meta,
-          links: links
-        });
-      })
-      .catch(error => {
-        this.setState({
-          error: error.errorMessage,
-          loading: true
-        });
-      });
+  fetIt(slug) {
+    const cardId = _filter(store.getState().trends.allTrends.items, function(
+      trend
+    ) {
+      return trend.uid === slug;
+    })[0].id;
+    this.props.fetchTrend(cardId);
+
+    return cardId;
   }
 
   render() {
-    let { card, similar, loading } = this.state;
-    if (loading) {
+    let { selectedTrend } = this.props;
+    if (selectedTrend.loading) {
       return (
         <div>
           <Loader />
@@ -95,12 +71,14 @@ export default class DetailPage extends Component {
           <span>Back</span>
         </Link>
         <div className="card__detailpage__wrapper">
-          <div className="detailpage__title">{card.title}</div>
-          <div className="detailpage__summary">{card.summary}</div>
+          <div className="detailpage__title">{selectedTrend.card.title}</div>
+          <div className="detailpage__summary">
+            {selectedTrend.card.summary}
+          </div>
           <div className="detailpage__slug-title">
-            <span>{card.category.name}</span>
-            <span>{card.culture.name}</span>
-            <span>{card.event_type.name}</span>
+            <span>{selectedTrend.card.category.name}</span>
+            <span>{selectedTrend.card.culture.name}</span>
+            <span>{selectedTrend.card.event_type.name}</span>
           </div>
           <span>
             <div
@@ -118,7 +96,9 @@ export default class DetailPage extends Component {
               footer={null}
             >
               <span className="sharebtn__wrapper">
-                <span onClick={() => shareOnFacebook(card.share.url)}>
+                <span
+                  onClick={() => shareOnFacebook(selectedTrend.card.share.url)}
+                >
                   <img
                     src={facebookShare}
                     alt="face"
@@ -126,7 +106,9 @@ export default class DetailPage extends Component {
                     height="32px"
                   />
                 </span>
-                <span onClick={() => shareOnTwitter(card.share.url)}>
+                <span
+                  onClick={() => shareOnTwitter(selectedTrend.card.share.url)}
+                >
                   <img
                     src={twitterShare}
                     alt="twitter"
@@ -135,7 +117,12 @@ export default class DetailPage extends Component {
                   />
                 </span>
                 <span
-                  onClick={() => shareOnLinkedIn(card.share.url, card.title)}
+                  onClick={() =>
+                    shareOnLinkedIn(
+                      selectedTrend.card.share.url,
+                      selectedTrend.card.title
+                    )
+                  }
                 >
                   <img
                     src={linkedinShare}
@@ -144,7 +131,11 @@ export default class DetailPage extends Component {
                     height="32px"
                   />
                 </span>
-                <span onClick={() => shareOnGooglePlus(card.share.url)}>
+                <span
+                  onClick={() =>
+                    shareOnGooglePlus(selectedTrend.card.share.url)
+                  }
+                >
                   <img
                     src={googleplusShare}
                     alt="G+"
@@ -153,7 +144,12 @@ export default class DetailPage extends Component {
                   />
                 </span>
                 <span
-                  onClick={() => shareOnPinterest(card.share.url, card.image)}
+                  onClick={() =>
+                    shareOnPinterest(
+                      selectedTrend.card.share.url,
+                      selectedTrend.card.image
+                    )
+                  }
                 >
                   <img
                     src={pinterestShare}
@@ -164,7 +160,10 @@ export default class DetailPage extends Component {
                 </span>
                 <span
                   onClick={() =>
-                    shareOnWhatsapp(card.share.url, "check this out")
+                    shareOnWhatsapp(
+                      selectedTrend.card.share.url,
+                      "check this out"
+                    )
                   }
                 >
                   <img
@@ -174,7 +173,14 @@ export default class DetailPage extends Component {
                     height="32px"
                   />
                 </span>
-                <span onClick={() => shareWithMail(card.share.url, card.title)}>
+                <span
+                  onClick={() =>
+                    shareWithMail(
+                      selectedTrend.card.share.url,
+                      selectedTrend.card.title
+                    )
+                  }
+                >
                   <img
                     src={emailShare}
                     alt="email"
@@ -187,12 +193,14 @@ export default class DetailPage extends Component {
           </span>
         </div>
         <div>
-          <div>{formatter(card.content)}</div>
+          <div key={selectedTrend.card.title}>
+            {formatter(selectedTrend.card.content)}
+          </div>
         </div>
         <div className="card__similar-trend">
           <p className="card__similar-trend-title">Related Trends</p>
           <div className="card__similar-trend-img">
-            {similar.map((value, index) => (
+            {selectedTrend.similar.map((value, index) => (
               <div className="card__similar-image" key={index} style={{}}>
                 <a href={value.share.url}>
                   <img src={value.image.url} alt="similar-trends" />
@@ -206,3 +214,13 @@ export default class DetailPage extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  selectedTrend: state.trends.selectedTrend,
+  trends: state.trends.allTrends
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchTrend }
+)(DetailPage);

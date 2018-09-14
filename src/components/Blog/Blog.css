@@ -49,7 +49,7 @@
 }
 
 .blog__jumbotron-text-wrapper {
-    width: 566px;
+    width: 47%;
     height: 400px;
     border-radius: 10px;
     background: rgba(220, 228, 243, 0.16);
@@ -67,6 +67,15 @@
     margin-bottom: 24px;
 }
 
+.blog__jumbotron-breadcrumb {
+    position: absolute;
+    z-index: 100;
+}
+
+.blog__jumbotron-breadcrumb a {
+    color: white !important;
+}
+
 .blog__jumbotron-details {
     font-size: 18px;
     color: #ffffff;
@@ -77,12 +86,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 48px
+    margin-top: 48px;
 }
 
 .blog__card {
-    width: 382px;
-    margin-bottom: 80px
+    width: 380px;
+    margin-bottom: 80px !important;
 }
 
 .ant-card-body {
@@ -109,7 +118,7 @@
 
 .search {
     margin-right: 8px !important;
-    width: 1050px !important;
+    width: 85% !important;
     height: 56px !important;
     position: relative;
     top: -120px;
@@ -128,5 +137,25 @@
 @media screen and (max-width: 768px) {
     .blog__wrapper {
         padding: 0 30px;
+    }
+    .blog__card {
+        margin-bottom: 20px !important;
+    }
+    .blog__links {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .blog__card {
+        width: 340px;
+        margin-bottom: 40px !important;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .blog__card {
+        width: 425px;
+        margin-bottom: 40px !important;
     }
 }

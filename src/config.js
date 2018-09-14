@@ -69,12 +69,12 @@ export const nav_links = [
   { url: "/marketplace", title: "Marketplace" }
 ];
 export const blog_links = [
-  { url: "#", title: "Latest" },
-  { url: "#", title: "Event tips" },
-  { url: "#", title: "Real events" },
-  { url: "#", title: "Supplier insight" },
-  { url: "#", title: "Videos" }
+  { url: "event", title: "Event Tips" },
+  { url: "real-events", title: "Real Events" },
+  { url: "suppliers-insight", title: "Supplier's Insight" },
+  { url: "videos ", title: "Videos" }
 ];
+
 export const aside__navlinks = [
   { url: "/", title: "Home" },
   { url: "/tv", title: "TV" },

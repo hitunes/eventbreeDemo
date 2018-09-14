@@ -1,6 +1,6 @@
 import React from "react";
 import Plyr from "react-plyr";
-import { Button, Menu, Icon } from "antd";
+import { Button, Icon } from "antd";
 
 /**
  * Fetch response helper
@@ -164,23 +164,22 @@ export const formatter = content => {
             {formatText(value.content)}
           </div>
         );
-        break;
       case "video":
         return formatVideo(value.content);
-        break;
+
       case "image_with_caption":
         return (
           <div className="content__image-wrapper">
             {formatImg(value.content)}
           </div>
         );
-        break;
+
       case "quote":
         return formatBlockquote(value.content);
-        break;
+
       case "banner_with_caption":
         return formatBanner(value.content);
-        break;
+
       default:
         return <p />;
     }
@@ -196,49 +195,49 @@ function formatText(content) {
             <p>{value.text}</p>
           </div>
         );
-        break;
+
       case "heading1":
         return <h1>{value.text}</h1>;
-        break;
+
       case "heading2":
         return <h2>{value.text}</h2>;
-        break;
+
       case "heading3":
         return <h3>{value.text}</h3>;
-        break;
+
       case "heading4":
         return <h4>{value.text}</h4>;
-        break;
+
       case "heading5":
         return <h5>{value.text}</h5>;
-        break;
+
       case "heading6":
         return <h6>{value.text}</h6>;
-        break;
+
       case "embed":
         return <embed>{value.text}</embed>;
-        break;
+
       case "list-item":
         return <ul>(value.text.map(value => value.text))</ul>;
-        break;
+
       case "o-list-item":
         return <ol>(value.text.map(value => value.text))</ol>;
-        break;
+
       case "image":
         return <img src={value.url} alt="" />;
-        break;
+
       case "preformatted":
         return <pre>{value.text}</pre>;
-        break;
+
       case "strong":
         return <strong>{value.text}</strong>;
-        break;
+
       case "em":
         return <em>{value.text}</em>;
-        break;
+
       case "label":
         return <label>{value.text}</label>;
-        break;
+
       default:
         return value.text;
     }
@@ -292,7 +291,31 @@ function formatBlockquote(content) {
     </div>
   );
 }
-
+export const handleView = () => {
+  return window.innerWidth < 769 ? (
+    <div>
+      <img
+        className="mobile-img-left side-img"
+        src={mobileLeftSide}
+        alt="left-design"
+      />
+      <img
+        className="mobile-img-right side-img"
+        src={mobileRightSide}
+        alt="right-design"
+      />
+    </div>
+  ) : (
+    <div>
+      <img className="img-right side-img" src={webLeftSide} alt="left-design" />
+      <img
+        className="img-left side-img"
+        src={webRightSide}
+        alt="right-design"
+      />
+    </div>
+  );
+};
 // images link
 export const facebookShare =
   "https://static.eventbree.com/trends/images/png/facebook-share-icon.png";
