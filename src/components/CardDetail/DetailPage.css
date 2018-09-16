@@ -269,6 +269,7 @@
     .content__text-wrapper {
         font-size: 12px;
         margin-bottom: 30px;
+        max-width: 100%;
     }
     .card__summary-image {
         width: 257px;
@@ -352,6 +353,7 @@
         .content__text-wrapper {
             font-size: 12px;
             margin-bottom: 30px;
+            max-width: 100%;
         }
         .card__summary-image {
             width: 295px;
@@ -429,6 +431,7 @@
         .content__text-wrapper {
             font-size: 12px;
             margin-bottom: 30px;
+            max-width: 100%;
         }
         .card__summary-image {
             width: 306px;
@@ -506,6 +509,7 @@
         .content__text-wrapper {
             font-size: 12px;
             margin-bottom: 30px;
+            max-width: 100%;
         }
         .card__summary-image {
             width: 347px;

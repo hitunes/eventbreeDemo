@@ -15,7 +15,7 @@ class CardGroup extends Component {
     this.props.fetchTrends(this.page);
   };
   render() {
-    let { trends } = this.props;
+    let { trends, searchTrends } = this.props;
     if (trends.loading) {
       return (
         <div>
@@ -27,9 +27,18 @@ class CardGroup extends Component {
       <div>
         <Masonry className={"container"} key={new Date().getTime()}>
           {trends.items.length !== 0
-            ? trends.items.map((value, index) => (
-                <Card key={index} card={value} value={value.id} />
-              ))
+            ? trends.items
+                .filter(
+                  card =>
+                    `${card.category.name}${card.title}${card.date}${
+                      card.culture.name
+                    }${card.event_type.name}`
+                      .toUpperCase()
+                      .indexOf(searchTrends.toUpperCase()) >= 0
+                )
+                .map((value, index) => (
+                  <Card key={index} card={value} value={value.id} />
+                ))
             : null}
         </Masonry>
         <div className="clickMe" onClick={this.onPaginatedSearch}>

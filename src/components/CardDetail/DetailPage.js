@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal } from "antd";
+import { Modal, Button } from "antd";
 import { Link } from "react-router-dom";
 import {
   formatter,
@@ -22,9 +22,6 @@ import "./DetailPage.css";
 import Loader from "./Loader";
 import { connect } from "react-redux";
 import { fetchTrend } from "../../store/actions/trendActions";
-import store from "../../store";
-import _filter from "lodash/filter";
-import _isEmpty from "lodash/isEmpty";
 
 class DetailPage extends Component {
   state = {
@@ -35,25 +32,8 @@ class DetailPage extends Component {
   }
   componentDidMount() {
     const slug = this.props.match.params.id;
-    if (_isEmpty(store.getState().trends.allTrends.items)) {
-      setTimeout(() => {
-        this.fetIt(slug);
-      }, 3000);
-    } else {
-      this.fetIt(slug);
-    }
+    this.props.fetchTrend(slug);
     window.scrollTo(0, 0);
-  }
-
-  fetIt(slug) {
-    const cardId = _filter(store.getState().trends.allTrends.items, function(
-      trend
-    ) {
-      return trend.uid === slug;
-    })[0].id;
-    this.props.fetchTrend(cardId);
-
-    return cardId;
   }
 
   render() {
@@ -67,9 +47,30 @@ class DetailPage extends Component {
     }
     return (
       <div className="detailpage__wrapper">
-        <Link to="/" className="detailpage__back-btn">
+        <Link to="/trends" className="detailpage__back-btn">
           <span>Back</span>
         </Link>
+        <div className="advert-here">
+          <div className="advert-here-box">
+            <img
+              src={selectedTrend.card.ads[0].image.url}
+              alt={selectedTrend.card.ads[0].image.alt}
+            />
+            <div className="advert__title">
+              {selectedTrend.card.ads[0].cta.text}
+            </div>
+            <div className="advert__description">
+              {selectedTrend.card.ads[0].cta.text}
+            </div>
+            <a
+              href={selectedTrend.card.ads[0].cta.url}
+              target="_blank"
+              className="advert__button_link"
+            >
+              <Button>{selectedTrend.card.ads[0].cta.text}</Button>
+            </a>
+          </div>
+        </div>
         <div className="card__detailpage__wrapper">
           <div className="detailpage__title">{selectedTrend.card.title}</div>
           <div className="detailpage__summary">

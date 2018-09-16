@@ -33,12 +33,12 @@ export default (state = initialState, action) => {
         links: links,
         loading: false
       });
-      return { ...state, ...fetchSlug }
+      return { ...state, ...fetchSlug };
     case UPDATE_CLASSIFICATION_LIKE:
       let classificationCards = [...state.allClassifications.slug];
       classificationCards.forEach(card => {
         const cardId = action.payload;
-        if (card.id === cardId && card.like === false) {
+        if (card.uid === cardId && card.like === false) {
           card.like = !card.like;
           card.stats.likes++;
         }

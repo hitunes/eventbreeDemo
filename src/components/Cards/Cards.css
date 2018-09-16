@@ -13,11 +13,6 @@
 .card-img {
     z-index: 10;
     height: 100%;
-    width: 356px;
-}
-
-.card__wrapper {
-    /* background-color: #fff; */
 }
 
 .card-img:after {

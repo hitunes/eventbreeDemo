@@ -65,7 +65,7 @@ export default (state = initialState, action) => {
       let trendingCards = [...state.allTrends.items];
       trendingCards.forEach(card => {
         const cardId = action.payload;
-        if (card.id === cardId && card.like === false) {
+        if (card.uid === cardId && card.like === false) {
           card.like = !card.like;
           card.stats.likes++;
         }

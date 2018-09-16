@@ -18,13 +18,18 @@ import "antd/dist/antd.css";
 import "./App.css";
 
 class App extends Component {
-    page = 1;
+  page = 1;
   state = {
-    value: ""
+    searchTrends: "",
+    value: "",
+    loading: true
   };
-    componentDidMount() {
+  componentDidMount() {
     this.props.fetchTrends(this.page);
   }
+  handleSearch = e => {
+    this.setState({ searchTrends: e.target.value });
+  };
   onChange = e => {
     this.state.value({
       value: e.target.value
@@ -39,24 +44,18 @@ class App extends Component {
             {handleView()}
             <NavLinks />
             <Sidebar />
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/home" component={LandingPage} />
             <div>
               <Route
-                path="/blog"
+                path="/"
                 render={props => (
-                  <Blog
-                    {...props}
-                    onPaginatedSearch={this.onPaginatedSearch}
-                  />
+                  <Blog {...props} onPaginatedSearch={this.onPaginatedSearch} />
                 )}
               />
               <Route
                 path="/blog-detail"
                 render={props => (
-                  <BlogDetail
-                    {...props}
-                    loadingMore={this.state.loadingMore}
-                  />
+                  <BlogDetail {...props} loadingMore={this.state.loadingMore} />
                 )}
               />
             </div>
@@ -73,9 +72,11 @@ class App extends Component {
                   <SearchInput
                     searchTrends={this.state.searchTrends}
                     handleSearch={this.handleSearch}
-                    loading={this.state.loading}
                   />
-                  <CardGroup onChange={this.onChange} />
+                  <CardGroup
+                    onChange={this.onChange}
+                    searchTrends={this.state.searchTrends}
+                  />
                 </div>
               )}
             />

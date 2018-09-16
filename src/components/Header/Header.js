@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { logoHeader } from "../../helpers.js";
 import { connect } from "react-redux";
@@ -18,18 +17,18 @@ const NavLinks = () => {
       <div className="nav__sidebar-btn" onClick={() => handleSidebar()}>
         <img src="images/hamburger-menu.png" alt="ham" />
       </div>
-      <Link to="/" className="nav__logo">
+      <a href="https://eventbree.com" className="nav__logo">
         <img
           src={logoHeader}
           alt="EventBree Logo"
           height="45px"
           width="190px"
         />
-      </Link>
+      </a>
       <div className="nav__links">
         {nav_links.map((links, index) => (
           <div key={index}>
-            <Link to={links.url}>{links.title}</Link>
+            <a href={links.url}>{links.title}</a>
           </div>
         ))}
       </div>

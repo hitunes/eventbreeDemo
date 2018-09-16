@@ -24,12 +24,15 @@ export default class Footer extends Component {
             <div className="footer__links-left">
               {FooterLinksTitleUrl(helps)}
             </div>
+            <div className="footer__links-terms">
+              {FooterLinksTitleUrl(terms)}
+            </div>
+
             <div className="footer__copyrights">
               <span className="copyright-year">© 2018</span>
               <span className="copyright-title">
                 Eventbree is a product of Tedbree Limited.
               </span>
-              {FooterLinksTitleUrl(terms)}
             </div>
           </div>
         ) : (

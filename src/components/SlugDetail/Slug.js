@@ -24,16 +24,19 @@ import "./Slug.css";
 import { GlobalPageTitle, FrontPageTitle } from "../Header/Header";
 class Slug extends Component {
   state = {
-    slugTitle: ""
+    slugTitle: "",
+    modal2Visible: false
   };
+  setModal2Visible(modal2Visible) {
+    this.setState({ modal2Visible });
+  }
   updateLikes = cardId => {
     this.props.updateClassLikes(cardId);
   };
   componentDidMount() {
-    const slugId = this.props.match.params.id;
     const slugCategory = this.props.match.params.classification;
     const slugUid = this.props.match.params.uid;
-    this.props.fetchClass(slugCategory, slugId);
+    this.props.fetchClass(slugCategory, slugUid);
     window.scrollTo(0, 0);
     this.setState({
       slugTitle: slugUid
@@ -41,9 +44,9 @@ class Slug extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {
-      const slugId = this.props.match.params.id;
+      const slugUid = this.props.match.params.uid;
       const slugCategory = this.props.match.params.classification;
-      this.props.fetchClass(slugCategory, slugId);
+      this.props.fetchClass(slugCategory, slugUid);
     }
   }
 
@@ -52,30 +55,26 @@ class Slug extends Component {
     let { slugTitle } = this.state;
     return (
       <div className="slugpage__wrapper">
-        <GlobalPageTitle>
-          Showing Trends for
-          <span className="slugpage__title">{slugTitle}</span>
-        </GlobalPageTitle>
+        <GlobalPageTitle>Showing Trends for {slugTitle}</GlobalPageTitle>
         <FrontPageTitle>
-          we have {classifications.slug.length} trends for
-          <span className="slugpage__title">{slugTitle}</span>
+          we have {classifications.slug.length} trends for {slugTitle}
         </FrontPageTitle>
         <Masonry className={"slugpage__container"} key={new Date().getTime()}>
           {classifications.slug.map((card, index) => (
             <div className="card">
-              <div className="card-image">
+              <div className="card-img">
                 <img src={card.image.url} alt="check" />
                 <div className="card-details">
                   <div
                     className="card-title"
                     onClick={() =>
-                      history.push(`/${card.category.slug}/${card.id}`)
+                      history.push(`/${card.category.slug}/${card.uid}`)
                     }
                   >
                     {card.title}
                   </div>
                   <div className="card-title-btns">
-                    <span onClick={() => this.updateLikes(card.id)}>
+                    <span onClick={() => this.updateLikes(card.uid)}>
                       <img
                         src={
                           card.like === true

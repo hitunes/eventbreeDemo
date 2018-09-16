@@ -31,18 +31,19 @@ const Sidebar = () => {
         </div>
         <ul className="sidebar__ul">
           <li>
-            <Link to="/">Home</Link>
+            <a href="https://eventbree.com">Home</a>
           </li>
           <li>
-            <Link to="/tv">TV</Link>
+            <a href="https://eventbree.tv">TV</a>
           </li>
           <li>
-            <Link to="/trends">Trends</Link>
+            <a href="https://trends.eventbree.com">Trends</a>
           </li>
           <li>
-            <Link to="/market">Market Place</Link>
+            <a href="https://app.eventbree.com">Market Place</a>
           </li>
           <li>
+            <a href="" />
             <Link to="/network">Join partner network</Link>
           </li>
           <Menu mode="inline" style={{ height: "100%" }}>

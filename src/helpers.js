@@ -9,20 +9,20 @@ import { Button, Icon } from "antd";
  */
 export const FooterLinksTitleUrl = array => {
   return (
-    <span>
+    <React.Fragment>
       {array.map((links, index) => (
-        <span key={index}>
+        <div key={index}>
           <a href={links.url} target="_blank">
             {links.title}
           </a>
-        </span>
+        </div>
       ))}
-    </span>
+    </React.Fragment>
   );
 };
 export const FooterLinksTitleIcon = array => {
   return (
-    <span className="footer__connect-icons">
+    <div className="footer__connect-icons">
       {array.map((links, index) => (
         <span key={index}>
           <a href={links.url} target="_blank">
@@ -30,7 +30,7 @@ export const FooterLinksTitleIcon = array => {
           </a>
         </span>
       ))}
-    </span>
+    </div>
   );
 };
 const data = {
@@ -244,8 +244,6 @@ function formatText(content) {
   });
 }
 function formatVideo(content) {
-  // let embedurl = content.html.substring(62, 82);
-  // let url = `"https://youtu.be/${embedurl}"`;
   return (
     <Plyr
       type="youtube" // or "vimeo"
