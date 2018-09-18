@@ -28,7 +28,9 @@ const NavLinks = () => {
       <div className="nav__links">
         {nav_links.map((links, index) => (
           <div key={index}>
-            <a href={links.url}>{links.title}</a>
+            <a href={links.url} className={links.active}>
+              {links.title}
+            </a>
           </div>
         ))}
       </div>

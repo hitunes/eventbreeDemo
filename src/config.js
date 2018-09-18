@@ -65,7 +65,11 @@ export const nav_links = [
   { url: "https://eventbree.tv", title: "TV" },
   { url: "https://eventbree.com", title: "Home" },
   { url: "/", title: "Blog" },
-  { url: "https://trends.eventbree.com", title: "Trends" },
+  {
+    url: "https://trends.eventbree.com",
+    title: "Trends",
+    active: "nav-active"
+  },
   { url: "https://app.eventbree.com", title: "Marketplace" }
 ];
 export const blog_links = [

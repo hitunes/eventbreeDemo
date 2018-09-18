@@ -24,7 +24,8 @@ class Card extends Component {
   state = {
     modal2Visible: false
   };
-  updateLikes = () => {
+  updateLikes = e => {
+    e.preventDefault();
     this.props.updateTrendLikes(this.props.card.uid);
   };
 

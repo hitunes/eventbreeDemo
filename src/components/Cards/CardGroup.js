@@ -28,9 +28,6 @@ class CardGroup extends Component {
     searchTrends: "",
     value: ""
   };
-  componentDidMount() {
-    this.props.fetchTrends(this.page);
-  }
   onPaginatedSearch = e => {
     e.preventDefault();
     this.page += 1;
@@ -42,13 +39,6 @@ class CardGroup extends Component {
   render() {
     let { trends } = this.props;
     let { searchTrends } = this.state;
-    if (trends.loading) {
-      return (
-        <div>
-          <LoadingCard />
-        </div>
-      );
-    }
     return (
       <div className="maincontent__page-wrapper">
         <GlobalPageTitle>Eventbree Trends...</GlobalPageTitle>
@@ -60,22 +50,29 @@ class CardGroup extends Component {
           handleSearch={this.handleSearch}
         />
         <div>
-          <Masonry className={"container"} key={new Date().getTime()}>
-            {trends.items.length !== 0
-              ? trends.items
-                  .filter(
-                    card =>
-                      `${card.category.name}${card.title}${card.date}${
-                        card.culture.name
-                      }${card.event_type.name}`
-                        .toUpperCase()
-                        .indexOf(searchTrends.toUpperCase()) >= 0
-                  )
-                  .map((value, index) => (
-                    <Card key={index} card={value} value={value.id} />
-                  ))
-              : null}
-          </Masonry>
+          {trends.loading ? (
+            <div>
+              <LoadingCard />
+            </div>
+          ) : (
+            <Masonry className={"container"} key={new Date().getTime()}>
+              {trends.items.length !== 0
+                ? trends.items
+                    .filter(
+                      card =>
+                        `${card.category.name}${card.title}${card.date}${
+                          card.culture.name
+                        }${card.event_type.name}`
+                          .toUpperCase()
+                          .indexOf(searchTrends.toUpperCase()) >= 0
+                    )
+                    .map((value, index) => (
+                      <Card key={index} card={value} value={value.id} />
+                    ))
+                : null}
+            </Masonry>
+          )}
+
           <div className="clickMe" onClick={this.onPaginatedSearch}>
             {trends.loadingMore ? (
               <Spin size="small" />

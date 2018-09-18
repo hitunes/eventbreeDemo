@@ -44,7 +44,6 @@ const Sidebar = () => {
           </li>
           <li>
             <a href="">Join Our Patner Network</a>
-            <Link to="/network">Join partner network</Link>
           </li>
           <Menu mode="inline" style={{ height: "100%" }}>
             <SubMenu key="sub1" title={<Link to="/blog">Blog</Link>}>

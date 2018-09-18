@@ -5,6 +5,9 @@ import { handleView } from "./helpers.js";
 import Loadable from "react-loadable";
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { fetchTrends } from "./store/actions/trendActions";
 
 const Loading = () => <div>Loading...</div>;
 
@@ -39,6 +42,10 @@ const Slug = Loadable({
 });
 
 class App extends Component {
+  page = 1;
+  componentDidMount() {
+    this.props.fetchTrends(this.page);
+  }
   render() {
     return (
       <div className="App">
@@ -57,4 +64,7 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(
+  null,
+  { fetchTrends }
+)(App);

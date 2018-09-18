@@ -20,7 +20,6 @@
     font-weight: 900;
     color: #262a39;
     margin-top: 107px;
-    text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
 }
 
 .frontpagetitle {
@@ -31,7 +30,6 @@
     margin-top: 30px;
     font-size: 24px;
     color: #262a39;
-    text-shadow: 0 4.5px 6px rgba(0, 0, 0, 0.16);
 }
 
 .nav__links {
@@ -50,6 +48,11 @@
 .nav__links>div>a:hover,
 .nav__links>div>a::selection,
 .nav__links>div>a:active {
+    border-radius: 3px;
+    border-bottom: 3px solid #e5303e;
+}
+
+.nav-active {
     border-radius: 3px;
     border-bottom: 3px solid #e5303e;
 }
