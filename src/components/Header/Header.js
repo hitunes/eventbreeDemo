@@ -11,9 +11,9 @@ function handleSidebar() {
   store.dispatch(toggleSidebar());
 }
 
-const NavLinks = () => {
+const NavLinks = ({ headerShadow, navBtn }) => {
   return (
-    <div className="navlinks__wrapper">
+    <div className={`navlinks__wrapper ${headerShadow}`}>
       <div className="nav__sidebar-btn" onClick={() => handleSidebar()}>
         <img src="images/hamburger-menu.png" alt="ham" />
       </div>
@@ -21,7 +21,7 @@ const NavLinks = () => {
         <img
           src={logoHeader}
           alt="EventBree Logo"
-          height="45px"
+          height="32px"
           width="190px"
         />
       </a>
@@ -34,7 +34,10 @@ const NavLinks = () => {
           </div>
         ))}
       </div>
-      <Button className="nav__button">Join partner network</Button>
+      <div className={navBtn}>
+        <Button className="nav__button-download ">Download</Button>
+        <Button className="nav__button">Become a Supply Partner</Button>
+      </div>
     </div>
   );
 };

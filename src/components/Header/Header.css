@@ -2,8 +2,20 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    text-align: center;
     align-items: center;
+    background-color: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 40;
+    padding-right: 60px;
+    padding-top: 32px;
+    padding-bottom: 15px;
+}
+
+.showShadow {
+    box-shadow: 0 1px 2px rgba(60, 60, 60, 0.1);
 }
 
 .nav__sidebar-btn {
@@ -37,9 +49,9 @@
 }
 
 .nav__links>div>a {
-    padding-bottom: 14px;
+    padding-bottom: 28px;
     text-decoration: inherit;
-    font-size: 16px;
+    font-size: 14px;
     color: #262a39;
     margin-right: 40px;
     width: 42px;
@@ -57,12 +69,42 @@
     border-bottom: 3px solid #e5303e;
 }
 
-.nav__button {
+.d-nav-btn>button:nth-child(2) {
+    margin-left: 20px
+}
+
+.d-nav-btn {
+    right: -25px;
+    transition: all 400ms ease-in-out;
+}
+
+.nav__button-wrapper {
+    position: relative;
+    right: -320px;
+    transition: all 300ms ease-in-out;
+}
+
+.nav__button,
+.nav__button:hover {
     border-radius: 4px !important;
-    border: solid 2px #e5303e !important;
-    color: #e5303e !important;
-    padding: 10px 20px !important;
-    height: 40px !important;
+    border: 1px solid #c3c4c7;
+    background: #f8f8f8 !important;
+    color: #4f5057;
+    padding: 8px 24px;
+    height: auto;
+    margin-left: 100px;
+}
+
+.nav__button-download,
+.nav__button-download:hover {
+    padding: 8px 24px;
+    margin-top: 11px;
+    font-size: 14px;
+    border: 1px solid #ec4847 !important;
+    background-color: #ec4847 !important;
+    color: #fff !important;
+    max-width: 160px;
+    height: auto;
 }
 
 .nav__button:active,
@@ -90,6 +132,8 @@
         display: none !important
     }
     .nav__sidebar-btn {
+        top: 20px;
+        left: 20px;
         display: block
     }
     .navlinks__wrapper {
@@ -98,6 +142,19 @@
     .nav__logo>img {
         height: 22px;
         width: 111px
+    }
+    .d-nav-btn {
+        display: none
+    }
+    .nav__button-wrapper {
+        display: none;
+    }
+    .nav__button,
+    .nav__button:hover {
+        display: none;
+    }
+    .navlinks__wrapper {
+        padding: 32px 0
     }
 }
 
@@ -110,5 +167,19 @@
         margin-bottom: 38px;
         margin-top: 8px;
         font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .d-nav-btn {
+        right: -25px;
+        transition: all 400ms ease-in-out;
+    }
+    .nav__button-wrapper {
+        right: 0px;
+    }
+    .nav__button,
+    .nav__button:hover {
+        margin-left: 20px;
     }
 }

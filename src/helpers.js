@@ -285,7 +285,6 @@ function formatBlockquote(content) {
         <img src={quotes} alt="" />
       </div>
       <p className="blockquote__quote">{content}</p>
-      {/* <p className="blockquote__author">{author}</p> */}
     </div>
   );
 }
@@ -335,10 +334,8 @@ export const mobileLeftSide =
   "https://static.eventbree.com/trends/images/png/design-left-side.png";
 export const mobileRightSide =
   "https://static.eventbree.com/trends/images/png/design-right-side.png";
-export const webLeftSide =
-  "https://static.eventbree.com/trends/images/svg/trend-design-left.svg";
-export const webRightSide =
-  "https://static.eventbree.com/trends/images/svg/trend-design-right.svg";
+export const webLeftSide = "images/design-right.svg";
+export const webRightSide = "images/design-left.svg";
 export const logoHeader =
   "https://static.eventbree.com/images/logos/full/eventbree-black-red.svg";
 

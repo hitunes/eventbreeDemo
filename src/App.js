@@ -43,16 +43,35 @@ const Slug = Loadable({
 
 class App extends Component {
   page = 1;
+  state = {
+    headerShadow: "white",
+    navBtn: "nav__button-wrapper"
+  };
   componentDidMount() {
     this.props.fetchTrends(this.page);
+    this.Window();
   }
+  Window = () =>
+    window.addEventListener("scroll", () => {
+      // if (window.scrollY > 0) {
+      //   this.setState({ headerShadow: "showShadow", navBtn: "d-nav-btn" });
+      // } else {
+      //   this.setState({
+      //     headerShadow: "white",
+      //     navBtn: "nav__button-wrapper"
+      //   });
+      // }
+    });
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <div>
             {handleView()}
-            <NavLinks />
+            <NavLinks
+              headerShadow={this.state.headerShadow}
+              navBtn={this.state.navBtn}
+            />
             <Sidebar />
             <Route exact path="/" component={CardGroup} />
             <Route exact path="/:category/:id" component={DetailPage} />

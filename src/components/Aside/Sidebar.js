@@ -43,7 +43,7 @@ const Sidebar = () => {
             <a href="https://app.eventbree.com">Market Place</a>
           </li>
           <li>
-            <a href="">Join Our Patner Network</a>
+            <a href="">Become A Supply Partner</a>
           </li>
           <Menu mode="inline" style={{ height: "100%" }}>
             <SubMenu key="sub1" title={<Link to="/blog">Blog</Link>}>

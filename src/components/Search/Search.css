@@ -1,5 +1,5 @@
 .ant-input {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16) !important;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06) !important;
     border: 0px solid #d9d9d9 !important;
 }
 
@@ -45,12 +45,14 @@
 }
 
 .ant-dropdown-link {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
     padding: 0 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    color: #707070 !important;
 }
 
 .ant-carousel .slick-slide {

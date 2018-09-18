@@ -63,14 +63,14 @@ export const terms = [
 ];
 export const nav_links = [
   { url: "https://eventbree.tv", title: "TV" },
-  { url: "https://eventbree.com", title: "Home" },
-  { url: "/", title: "Blog" },
+  { url: "https://blog.eventbree.com", title: "Blog" },
   {
-    url: "https://trends.eventbree.com",
+    url: "/",
     title: "Trends",
     active: "nav-active"
   },
-  { url: "https://app.eventbree.com", title: "Marketplace" }
+  { url: "https://app.eventbree.com", title: "Marketplace" },
+  { url: "https://eventbree.com/corporate", title: "Corporate" }
 ];
 export const blog_links = [
   { url: "event", title: "Event Tips" },
@@ -80,10 +80,10 @@ export const blog_links = [
 ];
 
 export const aside__navlinks = [
-  { url: "https://eventbree.com", title: "Home" },
   { url: "https://eventbree.tv", title: "TV" },
-  { url: "/", title: "Blog" },
-  { url: "https://trends.eventbree.com", title: "Trends" },
+  { url: "https://blog.eventbree.com", title: "Blog" },
+  { url: "/", title: "Trends" },
   { url: "https://app.eventbree.com", title: "Market Place" },
+  { url: "https://eventbree.com/corporate", title: "Corporate" },
   { url: "/network", title: "Join partner network" }
 ];

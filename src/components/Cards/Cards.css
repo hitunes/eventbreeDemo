@@ -271,9 +271,9 @@
     }
 }
 
-@media screen and (min-width: 1440px) and (max-width: 1920px) {
+@media screen and (min-width: 1440px) {
     .container {
-        margin-left: 108px;
+        margin-left: 15%;
     }
     .card-img {
         width: 406px;
