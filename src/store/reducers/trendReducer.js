@@ -7,10 +7,10 @@ import {
 const initialState = {
   allTrends: {
     items: [],
+    searchTrends: "",
     loading: true,
     loadingMore: false,
-    error: "",
-    searchTrends: ""
+    error: ""
   },
   categoriesTrends: {
     items: [],
@@ -35,6 +35,8 @@ const initialState = {
 };
 export default (state = initialState, action) => {
   switch (action.type) {
+
+
     case FETCH_TRENDS:
       const trendsInfo = action.payload.data;
       trendsInfo.forEach(trend => {
@@ -51,6 +53,8 @@ export default (state = initialState, action) => {
             : trendsInfo
       });
       return { ...state, ...all };
+
+
     case FETCH_TREND:
       const trend = action.payload;
       const selected = (state.selectedTrend = {

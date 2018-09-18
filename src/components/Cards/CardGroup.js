@@ -1,48 +1,88 @@
-import React, { Component } from "react";
-import Masonry from "react-masonry-component";
-import { Spin } from "antd";
-import Card from "./Card";
-import Loading from "../Loading";
-import { connect } from "react-redux";
-import { fetchTrends } from "../../store/actions/trendActions";
 import "./Cards.css";
+
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import Card from "./Card";
+import { Spin } from "antd";
+import LoadingCard from "../Loading";
+import { GlobalPageTitle, FrontPageTitle } from "../Header/Header";
+import { fetchTrends } from "../../store/actions/trendActions";
+
+import Loadable from "react-loadable";
+
+const Loading = () => <div>Loading...</div>;
+
+const SearchInput = Loadable({
+  loader: () => import("../Search/Search"),
+  loading: () => Loading
+});
+const Masonry = Loadable({
+  loader: () => import("react-masonry-component"),
+  loading: () => Loading
+});
 
 class CardGroup extends Component {
   page = 1;
+  state = {
+    searchTrends: "",
+    value: ""
+  };
+  componentDidMount() {
+    this.props.fetchTrends(this.page);
+  }
   onPaginatedSearch = e => {
     e.preventDefault();
     this.page += 1;
     this.props.fetchTrends(this.page);
   };
+  handleSearch = e => {
+    this.setState({ searchTrends: e.target.value });
+  };
   render() {
-    let { trends, searchTrends } = this.props;
+    let { trends } = this.props;
+    let { searchTrends } = this.state;
     if (trends.loading) {
       return (
         <div>
-          <Loading />
+          <LoadingCard />
         </div>
       );
     }
     return (
-      <div>
-        <Masonry className={"container"} key={new Date().getTime()}>
-          {trends.items.length !== 0
-            ? trends.items
-                .filter(
-                  card =>
-                    `${card.category.name}${card.title}${card.date}${
-                      card.culture.name
-                    }${card.event_type.name}`
-                      .toUpperCase()
-                      .indexOf(searchTrends.toUpperCase()) >= 0
-                )
-                .map((value, index) => (
-                  <Card key={index} card={value} value={value.id} />
-                ))
-            : null}
-        </Masonry>
-        <div className="clickMe" onClick={this.onPaginatedSearch}>
-          {trends.loadingMore ? <Spin size="small" /> : <span>Show More</span>}
+      <div className="maincontent__page-wrapper">
+        <GlobalPageTitle>Eventbree Trends...</GlobalPageTitle>
+        <FrontPageTitle>
+          Inspirations and ideas for your events based on popular trends
+        </FrontPageTitle>
+        <SearchInput
+          searchTrends={searchTrends}
+          handleSearch={this.handleSearch}
+        />
+        <div>
+          <Masonry className={"container"} key={new Date().getTime()}>
+            {trends.items.length !== 0
+              ? trends.items
+                  .filter(
+                    card =>
+                      `${card.category.name}${card.title}${card.date}${
+                        card.culture.name
+                      }${card.event_type.name}`
+                        .toUpperCase()
+                        .indexOf(searchTrends.toUpperCase()) >= 0
+                  )
+                  .map((value, index) => (
+                    <Card key={index} card={value} value={value.id} />
+                  ))
+              : null}
+          </Masonry>
+          <div className="clickMe" onClick={this.onPaginatedSearch}>
+            {trends.loadingMore ? (
+              <Spin size="small" />
+            ) : (
+              <span>Show More</span>
+            )}
+          </div>
         </div>
       </div>
     );

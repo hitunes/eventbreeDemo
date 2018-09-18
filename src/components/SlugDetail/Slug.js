@@ -1,7 +1,10 @@
+import "./Slug.css";
+
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import Masonry from "react-masonry-component";
+
 import { Modal } from "antd";
-import { connect } from "react-redux";
 import { fetchClass } from "../../store/actions/classificationsActions";
 import { updateClassLikes } from "../../store/actions/classificationsActions";
 import {
@@ -20,7 +23,7 @@ import {
   whatsappShare,
   emailShare
 } from "../../helpers.js";
-import "./Slug.css";
+
 import { GlobalPageTitle, FrontPageTitle } from "../Header/Header";
 class Slug extends Component {
   state = {

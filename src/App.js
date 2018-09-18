@@ -1,41 +1,44 @@
+import "./App.css";
+import "antd/dist/antd.css";
+import { handleView } from "./helpers.js";
+
+import Loadable from "react-loadable";
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import { handleView } from "./helpers.js";
-import { FrontPageTitle, GlobalPageTitle } from "./components/Header/Header";
-import NavLinks from "./components/Header/Header";
-import CardGroup from "./components/Cards/CardGroup";
-import Sidebar from "./components/Aside/Sidebar";
-import SearchInput from "./components/Search/Search";
-import DetailPage from "./components/CardDetail/DetailPage";
-import Slug from "./components/SlugDetail/Slug";
-import Footer from "./components/Footer/Footer";
-import LandingPage from "./components/Landing/Landing";
-import { Blog } from "./components/Blog/Blog";
-import BlogDetail from "./components/Blog/BlogDetail";
-import { connect } from "react-redux";
-import { fetchTrends } from "./store/actions/trendActions";
-import "antd/dist/antd.css";
-import "./App.css";
+
+const Loading = () => <div>Loading...</div>;
+
+const Footer = Loadable({
+  loader: () => import("./components/Footer/Footer"),
+  loading: () => Loading
+});
+
+const NavLinks = Loadable({
+  loader: () => import("./components/Header/Header"),
+  loading: () => Loading
+});
+
+const CardGroup = Loadable({
+  loader: () => import("./components/Cards/CardGroup"),
+  loading: () => Loading
+});
+
+const Sidebar = Loadable({
+  loader: () => import("./components/Aside/Sidebar"),
+  loading: () => Loading
+});
+
+const DetailPage = Loadable({
+  loader: () => import("./components/CardDetail/DetailPage"),
+  loading: () => Loading
+});
+
+const Slug = Loadable({
+  loader: () => import("./components/SlugDetail/Slug"),
+  loading: () => Loading
+});
 
 class App extends Component {
-  page = 1;
-  state = {
-    searchTrends: "",
-    value: "",
-    loading: true
-  };
-  componentDidMount() {
-    this.props.fetchTrends(this.page);
-  }
-  handleSearch = e => {
-    this.setState({ searchTrends: e.target.value });
-  };
-  onChange = e => {
-    this.state.value({
-      value: e.target.value
-    });
-  };
-
   render() {
     return (
       <div className="App">
@@ -44,42 +47,7 @@ class App extends Component {
             {handleView()}
             <NavLinks />
             <Sidebar />
-            <Route exact path="/home" component={LandingPage} />
-            <div>
-              <Route
-                path="/"
-                render={props => (
-                  <Blog {...props} onPaginatedSearch={this.onPaginatedSearch} />
-                )}
-              />
-              <Route
-                path="/blog-detail"
-                render={props => (
-                  <BlogDetail {...props} loadingMore={this.state.loadingMore} />
-                )}
-              />
-            </div>
-            <Route
-              exact
-              path="/trends"
-              render={() => (
-                <div className="maincontent__page-wrapper">
-                  <GlobalPageTitle>Eventbree Trends...</GlobalPageTitle>
-                  <FrontPageTitle>
-                    Inspirations and ideas for your events based on popular
-                    trends
-                  </FrontPageTitle>
-                  <SearchInput
-                    searchTrends={this.state.searchTrends}
-                    handleSearch={this.handleSearch}
-                  />
-                  <CardGroup
-                    onChange={this.onChange}
-                    searchTrends={this.state.searchTrends}
-                  />
-                </div>
-              )}
-            />
+            <Route exact path="/" component={CardGroup} />
             <Route exact path="/:category/:id" component={DetailPage} />
             <Route exact path="/:classification/:id/:uid" component={Slug} />
             <Footer />
@@ -89,7 +57,4 @@ class App extends Component {
     );
   }
 }
-export default connect(
-  null,
-  { fetchTrends }
-)(App);
+export default App;

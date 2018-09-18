@@ -42,7 +42,6 @@ export const GlobalPageTitle = ({ children }) => {
 export const FrontPageTitle = ({ children }) => {
   return <div className="frontpagetitle">{children}</div>;
 };
-
 const mapStateToProps = state => ({
   sidebar: state.sidebar.sidebarOpen
 });
