@@ -1,9 +1,15 @@
+import "./Footer.css";
+
 import React, { Component } from "react";
+
 import { socials, helps, terms } from "./../../config";
 import { Button } from "antd";
-import { FooterLinksTitleUrl, FooterLinksTitleIcon } from "./../../helpers";
-import "./Footer.css";
-import { logoHeader } from "../../helpers";
+import {
+  FooterLinksTitleUrl,
+  FooterLinksTitleIcon,
+  logoHeader
+} from "./../../helpers";
+
 export default class Footer extends Component {
   render() {
     return (

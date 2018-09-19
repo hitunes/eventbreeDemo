@@ -49,19 +49,18 @@ class App extends Component {
   };
   componentDidMount() {
     this.props.fetchTrends(this.page);
-    this.Window();
   }
-  Window = () =>
-    window.addEventListener("scroll", () => {
-      // if (window.scrollY > 0) {
-      //   this.setState({ headerShadow: "showShadow", navBtn: "d-nav-btn" });
-      // } else {
-      //   this.setState({
-      //     headerShadow: "white",
-      //     navBtn: "nav__button-wrapper"
-      //   });
-      // }
-    });
+  // Window = () =>
+  //   window.addEventListener("scroll", () => {
+  //     // if (window.scrollY > 0) {
+  //     //   this.setState({ headerShadow: "showShadow", navBtn: "d-nav-btn" });
+  //     // } else {
+  //     //   this.setState({
+  //     //     headerShadow: "white",
+  //     //     navBtn: "nav__button-wrapper"
+  //     //   });
+  //     // }
+  //   });
   render() {
     return (
       <div className="App">

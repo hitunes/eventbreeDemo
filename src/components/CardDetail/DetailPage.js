@@ -1,6 +1,9 @@
+import "./DetailPage.css";
+
 import React, { Component } from "react";
-import { Modal, Button } from "antd";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
 import {
   formatter,
   shareOnTwitter,
@@ -18,9 +21,9 @@ import {
   whatsappShare,
   emailShare
 } from "../../helpers.js";
-import "./DetailPage.css";
+
 import Loader from "./Loader";
-import { connect } from "react-redux";
+import { Modal, Button } from "antd";
 import { fetchTrend } from "../../store/actions/trendActions";
 
 class DetailPage extends Component {

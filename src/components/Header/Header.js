@@ -1,12 +1,15 @@
+import "./Header.css";
+
 import React from "react";
-import { Button } from "antd";
-import { logoHeader } from "../../helpers.js";
 import { connect } from "react-redux";
+
+import { Button } from "antd";
+
 import { toggleSidebar } from "../../store/actions/sidebarActions";
 import store from "../../store";
-import "./Header.css";
-import { nav_links } from "../../config.js";
 
+import { nav_links } from "../../config.js";
+import { logoHeader } from "../../helpers.js";
 function handleSidebar() {
   store.dispatch(toggleSidebar());
 }

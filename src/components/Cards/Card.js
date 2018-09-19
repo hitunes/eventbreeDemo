@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+
 import { Modal } from "antd";
 import {
   shareOnTwitter,
@@ -17,7 +19,6 @@ import {
   whatsappShare,
   emailShare
 } from "../../helpers.js";
-import { connect } from "react-redux";
 import { updateTrendLikes } from "../../store/actions/trendActions";
 
 class Card extends Component {

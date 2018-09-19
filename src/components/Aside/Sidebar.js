@@ -1,11 +1,13 @@
-import React from "react";
-import { logoHeader } from "../../helpers.js";
-import { Link } from "react-router-dom";
-import { Menu } from "antd";
 import "./Sidebar.css";
+
+import React from "react";
 import { connect } from "react-redux";
-import { toggleSidebar } from "../../store/actions/sidebarActions";
+import { Link } from "react-router-dom";
+
+import { Menu } from "antd";
 import store from "../../store";
+import { logoHeader } from "../../helpers.js";
+import { toggleSidebar } from "../../store/actions/sidebarActions";
 
 function handleSidebar() {
   store.dispatch(toggleSidebar());

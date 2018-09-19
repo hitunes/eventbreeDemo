@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { Input, Icon, Menu, Dropdown } from "antd";
-import { handleResponse } from "../../helpers.js";
-import { withRouter } from "react-router-dom";
 import "./Search.css";
+
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
+import { handleResponse } from "../../helpers.js";
 import {
   Culture_API_URL,
   Event_API_URL,
   Category_API_URL
 } from "../../config.js";
+import { Input, Icon, Menu, Dropdown } from "antd";
 
 const Search = Input.Search;
 const SubMenu = Menu.SubMenu;
